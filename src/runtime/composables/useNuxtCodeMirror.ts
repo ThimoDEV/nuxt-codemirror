@@ -13,6 +13,8 @@ export interface UseCodeMirror extends NuxtCodeMirrorProps {
 
 const emptyExtensions: Extension[] = []
 
+// TODO: setStyle, Translations, disabled, 
+
 export function useNuxtCodeMirror(props: UseCodeMirror) {
   const {
     modelValue: value = '',
@@ -57,19 +59,20 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     },
   })
 
-  const updateListener = EditorView.updateListener.of((vu: ViewUpdate) => {
+  const updateListener = EditorView.updateListener.of((viewUpdate: ViewUpdate) => {
+    // TODO: Add focusChangedEvent, onUpdate event, onBlurred event
     if (
-      vu.docChanged
+      viewUpdate.docChanged
       && typeof onChange === 'function'
       // Fix echoing of the remote changes:
       // If transaction is market as remote we don't have to call `onChange` handler again
-      && !vu.transactions.some(tr => tr.annotation(External))
+      && !viewUpdate.transactions.some(tr => tr.annotation(External))
     ) {
-      const doc = vu.state.doc
+      const doc = viewUpdate.state.doc
       const value = doc.toString()
-      onChange(value, vu)
+      onChange(value, viewUpdate)
     }
-    onStatistics && onStatistics(getStatistics(vu))
+    onStatistics && onStatistics(getStatistics(viewUpdate))
   })
 
   const defaultExtensions = getDefaultExtensions({
@@ -119,13 +122,6 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     },
     { immediate: true },
   )
-
-  // watch(view, (view) => {
-  //   if (view) {
-  //     view.destroy()
-  //     view = undefined
-  //   }
-  // }, { immediate: true })
 
   watch([
     () => theme,

@@ -19,12 +19,6 @@ export default defineNuxtModule<ModuleOptions>({
       mode: 'client',
     })
 
-    addComponent({
-      name: 'NuxtCodemirrorTest',
-      filePath: resolve('./runtime/components/NuxtCodemirrorTest.vue'),
-      mode: 'client',
-    })
-
     addImports({
       name: 'useNuxtCodeMirror',
       as: 'useNuxtCodeMirror',

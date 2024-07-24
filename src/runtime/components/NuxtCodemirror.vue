@@ -16,26 +16,26 @@ const editor = ref<HTMLDivElement | null>(null)
 const codemirror = ref<{ container: Ref<HTMLDivElement | null>, view: Ref<EditorView | undefined>, state: Ref<EditorState | undefined> }>()
 
 const emit = defineEmits<{
-  (event: 'update:value', value: string, viewUpdate: ViewUpdate): void
-  (event: 'statistics', stats: Statistics): void
-  (event: 'createEditor', editor: { view: EditorView, state: EditorState }): void
-  (event: 'update', update: ViewUpdate): void
+  (event: 'onChange', value: string, viewUpdate: ViewUpdate): void
+  (event: 'onStatistics', data: Statistics): void
+  (event: 'onCreateEditor', editor: { view: EditorView, state: EditorState }): void
+  (event: 'onUpdate', update: ViewUpdate): void
 }>()
 
 onMounted(async () => {
   await nextTick()
   codemirror.value = useNuxtCodeMirror({
-    container: editor.value,
     ...props,
-    onChange: (value, viewUpdate) => emit('update:value', value, viewUpdate),
-    onStatistics: data => emit('statistics', data),
-    onCreateEditor: (view, state) => emit('createEditor', { view, state }),
-    onUpdate: viewUpdate => emit('update', viewUpdate),
+    container: editor.value,
+    onChange: (value, viewUpdate) => emit('onChange', value, viewUpdate),
+    onStatistics: data => emit('onStatistics', data),
+    onCreateEditor: (view, state) => emit('onCreateEditor', { view, state }),
+    onUpdate: viewUpdate => emit('onUpdate', viewUpdate),
   })
 })
 
 defineExpose({
-  codemirror
+  codemirror,
 })
 
 const attrs = useAttrs()
