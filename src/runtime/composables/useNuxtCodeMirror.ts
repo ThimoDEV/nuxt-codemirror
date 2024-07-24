@@ -3,7 +3,7 @@ import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import { type NuxtCodeMirrorProps } from '../types'
 import { getStatistics } from '../utils'
-import { ref, watch, watchEffect } from '#imports'
+import { onBeforeUnmount, ref, watch, watchEffect } from '#imports'
 
 const External = Annotation.define<boolean>()
 
@@ -42,6 +42,7 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
   const container = ref<HTMLDivElement | null>(null)
   const view = ref<EditorView>()
   const state = ref<EditorState>()
+
   const defaultThemeOption = EditorView.theme({
     '&': {
       height,
@@ -108,12 +109,6 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
         onCreateEditor && onCreateEditor(viewCurrent, stateCurrent)
       }
     }
-    return () => {
-      if (view) {
-        view.value = undefined
-        state.value = undefined
-      }
-    }
   })
 
   watch(
@@ -125,20 +120,12 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     { immediate: true },
   )
 
-  watch(view, (view) => {
-    if (view) {
-      view.destroy()
-      view = undefined
-    }
-  }, { immediate: true })
-
-  watch([() => autoFocus, () => view.value], ([autoFocus, view]) => {
-    if (autoFocus && view) {
-      view.focus()
-    }
-  },
-  { immediate: true },
-  )
+  // watch(view, (view) => {
+  //   if (view) {
+  //     view.destroy()
+  //     view = undefined
+  //   }
+  // }, { immediate: true })
 
   watch([
     () => theme,
@@ -176,6 +163,21 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
         changes: { from: 0, to: currentValue.length, insert: value || '' },
         annotations: [External.of(true)],
       })
+    }
+  })
+
+  watch([() => autoFocus, () => view.value], ([autoFocus, view]) => {
+    if (autoFocus && view) {
+      view.focus()
+    }
+  },
+  { immediate: true },
+  )
+
+  onBeforeUnmount(() => {
+    if (view) {
+      view.value?.destroy()
+      view.value = undefined
     }
   })
 

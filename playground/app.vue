@@ -25,7 +25,6 @@ const handleUpdate = (viewUpdate: ViewUpdate) => {
 
 <template>
   <div style="width: 800px; height: 400px;">
-    <ClientOnly>
       <NuxtCodemirror
         v-model="code"
         :extensions="extensions"
@@ -39,6 +38,5 @@ const handleUpdate = (viewUpdate: ViewUpdate) => {
         @statistics="handleStatistics"
         @update="handleUpdate"
       />
-    </ClientOnly>
   </div>
 </template>

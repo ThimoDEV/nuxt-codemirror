@@ -4,7 +4,7 @@ import type { EditorState } from '@codemirror/state'
 import { useNuxtCodeMirror } from '../composables/useNuxtCodeMirror'
 import type { NuxtCodeMirrorProps } from '../types'
 import type { Statistics } from '../utils'
-import { onMounted, ref, useAttrs, watch } from '#imports'
+import { onMounted, ref, useAttrs, watch, nextTick, type Ref } from '#imports'
 
 const props = withDefaults(defineProps<NuxtCodeMirrorProps>(), {
   modelValue: '',
@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<NuxtCodeMirrorProps>(), {
   theme: 'light',
 })
 
-const div = ref<HTMLDivElement | null>(null)
+const editor = ref<HTMLDivElement | null>(null)
+const codemirror = ref<{ container: Ref<HTMLDivElement | null>, view: Ref<EditorView | undefined>, state: Ref<EditorState | undefined> }>()
 
 const emit = defineEmits<{
   (event: 'update:value', value: string, viewUpdate: ViewUpdate): void
@@ -21,21 +22,20 @@ const emit = defineEmits<{
   (event: 'update', update: ViewUpdate): void
 }>()
 
-const { state, view, container } = useNuxtCodeMirror({
-  container: div.value,
-  ...props,
-  modelValue: props.modelValue,
-  // TS doesn't like the `emit` function
-  onChange: (value, viewUpdate) => emit('update:value', value, viewUpdate),
-  onStatistics: data => emit('statistics', data),
-  onCreateEditor: (view, state) => emit('createEditor', { view, state }),
-  onUpdate: viewUpdate => emit('update', viewUpdate),
+onMounted(async () => {
+  await nextTick()
+  codemirror.value = useNuxtCodeMirror({
+    container: editor.value,
+    ...props,
+    onChange: (value, viewUpdate) => emit('update:value', value, viewUpdate),
+    onStatistics: data => emit('statistics', data),
+    onCreateEditor: (view, state) => emit('createEditor', { view, state }),
+    onUpdate: viewUpdate => emit('update', viewUpdate),
+  })
 })
 
 defineExpose({
-  state,
-  view,
-  container,
+  codemirror
 })
 
 const attrs = useAttrs()
@@ -47,19 +47,11 @@ watch(() => props.modelValue, (newValue) => {
 })
 
 const defaultClassNames = typeof props.theme === 'string' ? `cm-theme-${props.theme}` : 'cm-theme'
-
-onMounted(() => {
-  console.log(div.value)
-  console.log('bla', state.value, view.value, container.value)
-  if (view.value) {
-    view.value.dispatch({ changes: { from: 0, insert: props.modelValue } })
-  }
-})
 </script>
 
 <template>
   <div
-    ref="div"
+    ref="editor"
     :class="`${defaultClassNames}${attrs.class ? ` ${attrs.class}` : ''}`"
     v-bind="attrs"
     class="editor-container"
