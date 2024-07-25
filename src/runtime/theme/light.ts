@@ -1,4 +1,4 @@
-import { EditorView } from '@codemirror/view';
+import { EditorView } from '@codemirror/view'
 
 export const defaultLightThemeOption = EditorView.theme(
   {
@@ -9,4 +9,4 @@ export const defaultLightThemeOption = EditorView.theme(
   {
     dark: false,
   },
-);
+)
