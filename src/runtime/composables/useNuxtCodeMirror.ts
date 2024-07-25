@@ -3,19 +3,22 @@ import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import { type NuxtCodeMirrorProps } from '../types'
 import { getStatistics } from '../utils'
-import { onBeforeUnmount, ref, watch, watchEffect } from '#imports'
+import { onBeforeUnmount, watch, watchEffect, type Ref } from '#imports'
 
 const External = Annotation.define<boolean>()
 
-export interface UseCodeMirror extends NuxtCodeMirrorProps {
+export interface UseCodeMirrorProps extends NuxtCodeMirrorProps {
   container?: HTMLDivElement | null
+  viewRef: Ref<EditorView | undefined>
+  stateRef: Ref<EditorState | undefined>
+  containerRef: Ref<HTMLDivElement | null>
 }
 
 const emptyExtensions: Extension[] = []
 
-// TODO: setStyle, Translations, disabled, 
+// TODO: setStyle, Translations, disabled,
 
-export function useNuxtCodeMirror(props: UseCodeMirror) {
+export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   const {
     modelValue: value = '',
     selection,
@@ -39,11 +42,14 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     basicSetup: defaultBasicSetup = true,
     root,
     initialState,
+    containerRef,
+    viewRef,
+    stateRef,
   } = props
 
-  const container = ref<HTMLDivElement | null>(null)
-  const view = ref<EditorView>()
-  const state = ref<EditorState>()
+  // const container = ref<HTMLDivElement | null>(null)
+  // const view = ref<EditorView>()
+  // const state = ref<EditorState>()
 
   const defaultThemeOption = EditorView.theme({
     '&': {
@@ -92,7 +98,7 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
   getExtensions = getExtensions.concat(extensions)
 
   watchEffect(() => {
-    if (container.value && !state.value) {
+    if (containerRef.value && !stateRef?.value) {
       const config = {
         doc: value,
         selection,
@@ -101,14 +107,14 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
       const stateCurrent = initialState
         ? EditorState.fromJSON(initialState.json, config, initialState.fields)
         : EditorState.create(config)
-      state.value = stateCurrent
-      if (!view.value) {
+      stateRef.value = stateCurrent
+      if (!viewRef.value) {
         const viewCurrent = new EditorView({
           state: stateCurrent,
-          parent: container.value,
+          parent: containerRef.value,
           root,
         })
-        view.value = viewCurrent
+        viewRef.value = viewCurrent
         onCreateEditor && onCreateEditor(viewCurrent, stateCurrent)
       }
     }
@@ -118,7 +124,7 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     () => props.container,
     (newContainer) => {
       if (newContainer === undefined) return
-      container.value = newContainer
+      containerRef.value = newContainer
     },
     { immediate: true },
   )
@@ -141,8 +147,8 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
     () => onUpdate,
   ],
   () => {
-    if (view.value) {
-      view.value.dispatch({ effects: StateEffect.reconfigure.of(getExtensions) })
+    if (viewRef.value) {
+      viewRef.value.dispatch({ effects: StateEffect.reconfigure.of(getExtensions) })
     }
   },
   { immediate: true },
@@ -153,16 +159,16 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
       return
     }
 
-    const currentValue = view.value ? view.value.state.doc.toString() : ''
-    if (view.value && value !== currentValue) {
-      view.value.dispatch({
+    const currentValue = viewRef.value ? viewRef.value.state.doc.toString() : ''
+    if (viewRef.value && value !== currentValue) {
+      viewRef.value.dispatch({
         changes: { from: 0, to: currentValue.length, insert: value || '' },
         annotations: [External.of(true)],
       })
     }
   })
 
-  watch([() => autoFocus, () => view.value], ([autoFocus, view]) => {
+  watch([() => autoFocus, () => viewRef.value], ([autoFocus, view]) => {
     if (autoFocus && view) {
       view.focus()
     }
@@ -171,15 +177,15 @@ export function useNuxtCodeMirror(props: UseCodeMirror) {
   )
 
   onBeforeUnmount(() => {
-    if (view) {
-      view.value?.destroy()
-      view.value = undefined
+    if (viewRef) {
+      viewRef.value?.destroy()
+      viewRef.value = undefined
     }
   })
 
   return {
-    container,
-    view,
-    state,
+    containerRef,
+    viewRef,
+    stateRef,
   }
 }

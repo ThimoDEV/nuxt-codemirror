@@ -4,16 +4,25 @@ import type { EditorState } from '@codemirror/state'
 import { useNuxtCodeMirror } from '../composables/useNuxtCodeMirror'
 import type { NuxtCodeMirrorProps } from '../types'
 import type { Statistics } from '../utils'
-import { onMounted, ref, useAttrs, watch, nextTick, type Ref } from '#imports'
+import { onMounted, ref, useAttrs, watch, nextTick } from '#imports'
+
+const editor = ref<HTMLDivElement | null>(null)
+const container = ref<HTMLDivElement | null>(null)
+const view = ref<EditorView>()
+const state = ref<EditorState>()
+
+defineExpose({
+  container,
+  view,
+  state,
+  editor,
+})
 
 const props = withDefaults(defineProps<NuxtCodeMirrorProps>(), {
   modelValue: '',
   extensions: () => [],
   theme: 'light',
 })
-
-const editor = ref<HTMLDivElement | null>(null)
-const codemirror = ref<{ container: Ref<HTMLDivElement | null>, view: Ref<EditorView | undefined>, state: Ref<EditorState | undefined> }>()
 
 const emit = defineEmits<{
   (event: 'onChange', value: string, viewUpdate: ViewUpdate): void
@@ -24,18 +33,21 @@ const emit = defineEmits<{
 
 onMounted(async () => {
   await nextTick()
-  codemirror.value = useNuxtCodeMirror({
+  useNuxtCodeMirror({
     ...props,
     container: editor.value,
     onChange: (value, viewUpdate) => emit('onChange', value, viewUpdate),
     onStatistics: data => emit('onStatistics', data),
     onCreateEditor: (view, state) => emit('onCreateEditor', { view, state }),
     onUpdate: viewUpdate => emit('onUpdate', viewUpdate),
+    viewRef: view,
+    stateRef: state,
+    containerRef: container,
   })
-})
 
-defineExpose({
-  codemirror,
+  // await nextTick()
+
+  // console.log('test: ', view.value)
 })
 
 const attrs = useAttrs()

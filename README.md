@@ -89,4 +89,4 @@ That's it! You can now use My Module in your Nuxt app ✨
 
 - I get extension duplicate error:  Fix Unrecognized extension value in extension set ([object Object]). This sometimes happens because multiple instances of @codemirror/state are loaded, breaking instanceof checks.
 
-shamefully hoist solves it for now with pnpm
+shamefully hoist solves it for now with pnpm together with a resolutions config for codemirror state
