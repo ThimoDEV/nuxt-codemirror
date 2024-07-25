@@ -22,6 +22,13 @@ Codemirror as a Nuxt module. Demo preview: Coming soon
 - 🌲 Custom useNuxtCodeMirror composable for creating your own editor
 - Built for CodeMirror 6 and above
 
+## Credits
+
+This Nuxt module wouldn't be possible without:
+
+- @uiw/react-codemirror: https://github.com/uiwjs/react-codemirror
+- @surmon-china/vue-codemirror: https://github.com/surmon-china/vue-codemirror
+
 ## Quick Setup
 
 Install the module to your Nuxt application with one command:
