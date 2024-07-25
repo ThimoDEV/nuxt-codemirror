@@ -27,7 +27,7 @@ Codemirror as a Nuxt module. Demo preview: Coming soon
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add thimodev/nuxt-codemirror
+npx nuxi module add nuxt-codemirror
 ```
 
 That's it! You can now use Nuxt-codemirror in your Nuxt app ✨
