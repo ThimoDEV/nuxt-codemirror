@@ -42,27 +42,27 @@ That's it! You can now use My Module in your Nuxt app ✨
 
 <details>
   <summary>Local development</summary>
-  
+
   ```bash
   # Install dependencies
   npm install
-  
+
   # Generate type stubs
   npm run dev:prepare
-  
+
   # Develop with the playground
   npm run dev
-  
+
   # Build the playground
   npm run dev:build
-  
+
   # Run ESLint
   npm run lint
-  
+
   # Run Vitest
   npm run test
   npm run test:watch
-  
+
   # Release new version
   npm run release
   ```
@@ -82,3 +82,11 @@ That's it! You can now use My Module in your Nuxt app ✨
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
+
+
+
+## TO write FAQ
+
+- I get extension duplicate error:  Fix Unrecognized extension value in extension set ([object Object]). This sometimes happens because multiple instances of @codemirror/state are loaded, breaking instanceof checks.
+
+shamefully hoist solves it for now with pnpm
