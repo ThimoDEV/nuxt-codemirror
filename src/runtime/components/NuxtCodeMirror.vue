@@ -10,8 +10,9 @@ const container = ref<HTMLDivElement | null>(null)
 const view = ref<EditorView>()
 const state = ref<EditorState>()
 
-const props = withDefaults(defineProps<NuxtCodeMirrorProps>(), {
-  modelValue: '',
+const modelValue = defineModel<string>({ default: '' })
+
+const props = withDefaults(defineProps<Omit<NuxtCodeMirrorProps, 'modelValue'>>(), {
   extensions: () => [],
   theme: 'light',
 })
@@ -35,7 +36,11 @@ onMounted(async () => {
 
   useNuxtCodeMirror({
     ...props,
-    onChange: (value, viewUpdate) => emit('onChange', value, viewUpdate),
+    modelValue: modelValue.value,
+    onChange: (value, viewUpdate) => {
+      modelValue.value = value
+      emit('onChange', value, viewUpdate)
+    },
     onStatistics: data => emit('onStatistics', data),
     onCreateEditor: (view, state) => emit('onCreateEditor', { view, state }),
     onUpdate: viewUpdate => emit('onUpdate', viewUpdate),
@@ -52,7 +57,7 @@ onMounted(async () => {
   // console.log('test: ', view.value)
 })
 
-watch(() => props.modelValue, (newValue) => {
+watch(() => modelValue, (newValue) => {
   if (typeof newValue !== 'string') {
     console.error(`value must be typeof string but got ${typeof newValue}`)
   }
