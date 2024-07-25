@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.1
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.2...v0.0.1)
+
+### 🏡 Chore
+
+- Linting ([e85e414](https://github.com/ThimoDEV/nuxt-codemirror/commit/e85e414))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.2
 
 
