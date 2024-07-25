@@ -13,7 +13,6 @@ const extensions = [javascript({ jsx: true, typescript: true })]
 const handleChange = (value: string, viewUpdate: ViewUpdate) => {
   console.log('Value changed:', value)
   console.log('View updated:', viewUpdate)
-  // code.value = value
 }
 
 const handleStatistics = (stats: Statistics) => {
