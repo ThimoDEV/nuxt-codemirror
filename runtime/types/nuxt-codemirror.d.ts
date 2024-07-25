@@ -1,7 +1,7 @@
-import type { EditorState, EditorStateConfig, Extension, StateField } from '@codemirror/state'
+import type { EditorState, EditorStateConfig, Extension, StateField, EditorSelection, SelectionRange, Line } from '@codemirror/state'
 import type { EditorView, ViewUpdate } from '@codemirror/view'
 import type { BasicSetupOptions } from '@uiw/codemirror-extensions-basic-setup'
-import type { Statistics } from '../utils'
+import type { Ref } from '#imports'
 
 export interface NuxtCodeMirrorProps
   extends Omit<EditorStateConfig, 'doc' | 'extensions'> {
@@ -76,4 +76,48 @@ export interface NuxtCodeMirrorProps
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fields?: Record<string, StateField<any>>
   }
+}
+
+export interface UseCodeMirrorProps extends NuxtCodeMirrorProps {
+  container?: HTMLDivElement | null
+  viewRef: Ref<EditorView | undefined>
+  stateRef: Ref<EditorState | undefined>
+  containerRef: Ref<HTMLDivElement | null>
+}
+
+export interface Statistics {
+  /** total length of the document */
+  length: number
+  /** Get the number of lines in the editor. */
+  lineCount: number
+  /** Get the currently line description around the given position. */
+  line: Line
+  /** Get the proper [line-break](https://codemirror.net/docs/ref/#state.EditorState^lineSeparator) string for this state. */
+  lineBreak: string
+  /** Returns true when the editor is [configured](https://codemirror.net/6/docs/ref/#state.EditorState^readOnly) to be read-only. */
+  readOnly: boolean
+  /** The size (in columns) of a tab in the document, determined by the [`tabSize`](https://codemirror.net/6/docs/ref/#state.EditorState^tabSize) facet. */
+  tabSize: number
+  /** Cursor Position */
+  selection: EditorSelection
+  /** Make sure the selection only has one range. */
+  selectionAsSingle: SelectionRange
+  /** Retrieves a list of all current selections. */
+  ranges: readonly SelectionRange[]
+  /** Get the currently selected code. */
+  selectionCode: string
+  /**
+   * The length of the given array should be the same as the number of active selections.
+   * Replaces the content of the selections with the strings in the array.
+   */
+  selections: string[]
+  /** Return true if any text is selected. */
+  selectedText: boolean
+}
+
+export interface CodeMirrorRef {
+  container: HTMLDivElement | null
+  view: EditorView | undefined
+  state: EditorState | undefined
+  editor: HTMLDivElement | null
 }

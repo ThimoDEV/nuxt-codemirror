@@ -2,20 +2,19 @@
 import type { ViewUpdate, EditorView } from '@codemirror/view'
 import type { EditorState } from '@codemirror/state'
 import { useNuxtCodeMirror } from '../composables/useNuxtCodeMirror'
-import type { NuxtCodeMirrorProps } from '../types'
-import type { Statistics } from '../utils'
+import type { NuxtCodeMirrorProps, Statistics } from '../types/nuxt-codemirror'
 import { onMounted, ref, watch, nextTick, computed } from '#imports'
+
+const editor = ref<HTMLDivElement | null>(null)
+const container = ref<HTMLDivElement | null>(null)
+const view = ref<EditorView>()
+const state = ref<EditorState>()
 
 const props = withDefaults(defineProps<NuxtCodeMirrorProps>(), {
   modelValue: '',
   extensions: () => [],
   theme: 'light',
 })
-
-const editor = ref<HTMLDivElement | null>(null)
-const container = ref<HTMLDivElement | null>(null)
-const view = ref<EditorView>()
-const state = ref<EditorState>()
 
 defineExpose({
   container,
@@ -48,8 +47,8 @@ onMounted(async () => {
     containerRef: container,
   })
 
+  /** DEBUGGING the variables exposed by defineExpose */
   // await nextTick()
-
   // console.log('test: ', view.value)
 })
 

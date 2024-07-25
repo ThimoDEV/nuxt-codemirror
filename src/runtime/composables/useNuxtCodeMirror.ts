@@ -1,18 +1,11 @@
 import { Annotation, EditorState, StateEffect, type Extension } from '@codemirror/state'
 import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
-import { type NuxtCodeMirrorProps } from '../types'
-import { getStatistics } from '../utils'
-import { onBeforeUnmount, watch, watchEffect, type Ref } from '#imports'
+import { type UseCodeMirrorProps } from '../types/nuxt-codemirror'
+import { getStatistics } from '../utils/utils'
+import { onBeforeUnmount, watch, watchEffect } from '#imports'
 
 const External = Annotation.define<boolean>()
-
-export interface UseCodeMirrorProps extends NuxtCodeMirrorProps {
-  container?: HTMLDivElement | null
-  viewRef: Ref<EditorView | undefined>
-  stateRef: Ref<EditorState | undefined>
-  containerRef: Ref<HTMLDivElement | null>
-}
 
 const emptyExtensions: Extension[] = []
 
@@ -20,7 +13,7 @@ const emptyExtensions: Extension[] = []
 
 export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   const {
-    modelValue: value = '',
+    // modelValue = '',
     selection,
     onChange,
     onStatistics,
@@ -77,7 +70,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
       onChange(value, viewUpdate)
     }
 
-    if(viewUpdate.focusChanged) {
+    if (viewUpdate.focusChanged) {
       viewUpdate.view.hasFocus ? onFocus && onFocus(viewUpdate) : onBlur && onBlur(viewUpdate)
     }
     onStatistics && onStatistics(getStatistics(viewUpdate))
@@ -102,7 +95,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   watchEffect(() => {
     if (containerRef.value && !stateRef?.value) {
       const config = {
-        doc: value,
+        doc: props.modelValue,
         selection,
         extensions: getExtensions,
       }
@@ -157,14 +150,14 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   )
 
   watchEffect(() => {
-    if (value === undefined) {
+    if (props.modelValue === undefined) {
       return
     }
 
     const currentValue = viewRef.value ? viewRef.value.state.doc.toString() : ''
-    if (viewRef.value && value !== currentValue) {
+    if (viewRef.value && props.modelValue !== currentValue) {
       viewRef.value.dispatch({
-        changes: { from: 0, to: currentValue.length, insert: value || '' },
+        changes: { from: 0, to: currentValue.length, insert: props.modelValue || '' },
         annotations: [External.of(true)],
       })
     }
