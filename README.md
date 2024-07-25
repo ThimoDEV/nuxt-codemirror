@@ -1,13 +1,14 @@
 
 
-# Nuxt-CodeMirror
+# Nuxt CodeMirror
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+Codemirror as a Nuxt module. Demo preview: Coming soon
+
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -16,20 +17,20 @@ My new Nuxt module for doing amazing things.
 ## Features
 
 <!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- 🚀 Easily configure codemirror to your own needs using almost every API
+- 🚠 Built with Typescript
+- 🌲 Custom useNuxtCodeMirror composable for creating your own editor
+- Built for CodeMirror 6 and above
 
 ## Quick Setup
 
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add my-module
+npx nuxi module add thimodev/nuxt-codemirror
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
-
+That's it! You can now use Nuxt-codemirror in your Nuxt app ✨
 
 ## Contribution
 
@@ -38,26 +39,26 @@ That's it! You can now use My Module in your Nuxt app ✨
 
   ```bash
   # Install dependencies
-  npm install
+  pnpm i
 
   # Generate type stubs
-  npm run dev:prepare
+  pnpm dev:prepare
 
   # Develop with the playground
-  npm run dev
+  pnpm dev
 
   # Build the playground
-  npm run dev:build
+  pnpm dev:build
 
   # Run ESLint
-  npm run lint
+  pnpm lint
 
   # Run Vitest
-  npm run test
-  npm run test:watch
+  pnpm test
+  pnpm test:watch
 
   # Release new version
-  npm run release
+  pnpm release
   ```
 
 </details>
@@ -78,8 +79,8 @@ That's it! You can now use My Module in your Nuxt app ✨
 
 
 
-## TO write FAQ
+## FAQ
 
-- I get extension duplicate error:  Fix Unrecognized extension value in extension set ([object Object]). This sometimes happens because multiple instances of @codemirror/state are loaded, breaking instanceof checks.
+- I get an extension duplicate error:  Fix Unrecognized extension value in extension set ([object Object]). This sometimes happens because multiple instances of @codemirror/state are loaded, breaking instanceof checks.
 
-shamefully hoist solves it for now with pnpm together with a resolutions config for codemirror state
+For now write shamefully-hoist=true in your .npmrc file to solve this. We are working on a better solution
