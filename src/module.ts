@@ -14,9 +14,8 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
 
     addComponent({
-      name: 'NuxtCodemirror',
-      filePath: resolve('./runtime/components/NuxtCodemirror.vue'),
-      mode: 'client',
+      name: 'NuxtCodeMirror',
+      filePath: resolve('./runtime/components/NuxtCodeMirror.vue'),
     })
 
     addImports({

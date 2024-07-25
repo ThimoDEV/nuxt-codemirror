@@ -54,13 +54,5 @@ const defaultClassNames = typeof props.theme === 'string' ? `cm-theme-${props.th
     ref="editor"
     :class="`${defaultClassNames}${attrs.class ? ` ${attrs.class}` : ''}`"
     v-bind="attrs"
-    class="editor-container"
   />
 </template>
-
-<style scoped>
-.editor-container {
-  width: 1500px;
-  height: 400px;
-}
-</style>

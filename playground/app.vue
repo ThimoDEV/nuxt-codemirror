@@ -38,7 +38,7 @@ onMounted(async () => {
 
 <template>
   <div style="width: 800px; height: 400px;">
-    <NuxtCodemirror
+    <NuxtCodeMirror
       ref="codemirror"
       v-model="code"
       :extensions="extensions"
