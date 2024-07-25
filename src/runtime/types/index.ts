@@ -51,6 +51,10 @@ export interface NuxtCodeMirrorProps
   onUpdate?(viewUpdate: ViewUpdate): void
   /** The first time the editor executes the event. */
   onCreateEditor?(view: EditorView, state: EditorState): void
+  /** Fired whenever the editor is focused. */
+  onFocus?(view: ViewUpdate): void
+  /** Fired whenever the editor is blurred. */
+  onBlur?(view: ViewUpdate): void
   /**
    * Extension values can be [provided](https://codemirror.net/6/docs/ref/#state.EditorStateConfig.extensions) when creating a state to attach various kinds of configuration and behavior information.
    * They can either be built-in extension-providing objects,

@@ -26,6 +26,8 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
     onStatistics,
     onCreateEditor,
     onUpdate,
+    onFocus,
+    onBlur,
     extensions = emptyExtensions,
     autoFocus,
     theme = 'light',
@@ -47,10 +49,6 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
     stateRef,
   } = props
 
-  // const container = ref<HTMLDivElement | null>(null)
-  // const view = ref<EditorView>()
-  // const state = ref<EditorState>()
-
   const defaultThemeOption = EditorView.theme({
     '&': {
       height,
@@ -66,7 +64,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   })
 
   const updateListener = EditorView.updateListener.of((viewUpdate: ViewUpdate) => {
-    // TODO: Add focusChangedEvent, onUpdate event, onBlurred event
+    // TODO: Add focusChangedEvent, onBlurred event
     if (
       viewUpdate.docChanged
       && typeof onChange === 'function'
@@ -77,6 +75,10 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
       const doc = viewUpdate.state.doc
       const value = doc.toString()
       onChange(value, viewUpdate)
+    }
+
+    if(viewUpdate.focusChanged) {
+      viewUpdate.view.hasFocus ? onFocus && onFocus(viewUpdate) : onBlur && onBlur(viewUpdate)
     }
     onStatistics && onStatistics(getStatistics(viewUpdate))
   })
