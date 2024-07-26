@@ -79,6 +79,7 @@ export interface NuxtCodeMirrorProps
 }
 
 export interface UseCodeMirrorProps extends NuxtCodeMirrorProps {
+  /** Container element of the CodeMirror instance */
   container?: HTMLDivElement | null
   viewRef: Ref<EditorView | undefined>
   stateRef: Ref<EditorState | undefined>
@@ -116,8 +117,12 @@ export interface Statistics {
 }
 
 export interface CodeMirrorRef {
+  /** Container element of the CodeMirror instance */
   container: HTMLDivElement | null
+  /** The EditorView of the CodeMirror instance */
   view: EditorView | undefined
+  /** The EditorState of the CodeMirror instance */
   state: EditorState | undefined
+  /** Editor element of the CodeMirror instance */
   editor: HTMLDivElement | null
 }
