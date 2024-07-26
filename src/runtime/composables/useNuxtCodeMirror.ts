@@ -3,17 +3,15 @@ import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import { type UseCodeMirrorProps } from '../types/nuxt-codemirror'
 import { getStatistics } from '../utils/utils'
-import { onBeforeUnmount, watch, watchEffect } from '#imports'
+import { onUnmounted, watch, watchEffect } from '#imports'
 
 const External = Annotation.define<boolean>()
 
 const emptyExtensions: Extension[] = []
 
-// TODO: setStyle, Translations, disabled,
-
 export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   const {
-    // modelValue = '',
+    modelValue: value = '',
     selection,
     onChange,
     onStatistics,
@@ -57,7 +55,6 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   })
 
   const updateListener = EditorView.updateListener.of((viewUpdate: ViewUpdate) => {
-    // TODO: Add focusChangedEvent, onBlurred event
     if (
       viewUpdate.docChanged
       && typeof onChange === 'function'
@@ -95,7 +92,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   watchEffect(() => {
     if (containerRef.value && !stateRef?.value) {
       const config = {
-        doc: props.modelValue,
+        doc: value,
         selection,
         extensions: getExtensions,
       }
@@ -150,14 +147,14 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   )
 
   watchEffect(() => {
-    if (props.modelValue === undefined) {
+    if (value === undefined) {
       return
     }
 
     const currentValue = viewRef.value ? viewRef.value.state.doc.toString() : ''
-    if (viewRef.value && props.modelValue !== currentValue) {
+    if (viewRef.value && value !== currentValue) {
       viewRef.value.dispatch({
-        changes: { from: 0, to: currentValue.length, insert: props.modelValue || '' },
+        changes: { from: 0, to: currentValue.length, insert: value || '' },
         annotations: [External.of(true)],
       })
     }
@@ -171,16 +168,10 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   { immediate: true },
   )
 
-  onBeforeUnmount(() => {
+  onUnmounted(() => {
     if (viewRef) {
       viewRef.value?.destroy()
       viewRef.value = undefined
     }
   })
-
-  return {
-    containerRef,
-    viewRef,
-    stateRef,
-  }
 }

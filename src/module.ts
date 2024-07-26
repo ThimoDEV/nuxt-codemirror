@@ -25,8 +25,16 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addTypeTemplate({
-      filename: '../runtime/types/nuxt-codemirror.d.ts',
+      filename: 'nuxt-codemirror.d.ts',
       src: resolve('./runtime/types/nuxt-codemirror.d.ts'),
+    })
+
+    _nuxt.hook('vite:extendConfig', (config) => {
+      config.resolve = config.resolve || {}
+      config.resolve.alias = config.resolve.alias || {}
+
+      // @ts-expect-error - Add alias for @codemirror/view
+      config.resolve.alias['@codemirror/state'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/state')
     })
   },
 })
