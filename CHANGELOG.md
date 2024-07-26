@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.5...v0.0.6)
+
+### 📖 Documentation
+
+- Add type explain code ([06b52ac](https://github.com/ThimoDEV/nuxt-codemirror/commit/06b52ac))
+
+### 🏡 Chore
+
+- Cleanup types and module config ([eda423d](https://github.com/ThimoDEV/nuxt-codemirror/commit/eda423d))
+- Fix lint issues ([03e232e](https://github.com/ThimoDEV/nuxt-codemirror/commit/03e232e))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.5
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.4...v0.0.5)
