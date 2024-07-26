@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.4...v0.0.5)
+
+### 🏡 Chore
+
+- Add export for types ([f8925cc](https://github.com/ThimoDEV/nuxt-codemirror/commit/f8925cc))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.4
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.3...v0.0.4)
