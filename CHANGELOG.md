@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.3...v0.0.4)
+
+### 🩹 Fixes
+
+- Types module name not defined ([651d271](https://github.com/ThimoDEV/nuxt-codemirror/commit/651d271))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.3
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.1...v0.0.3)
