@@ -11,7 +11,7 @@ Codemirror as a Nuxt module. Demo preview: Coming soon
 
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
+- [🏀 Online playground](https://stackblitz.com/edit/nuxt-starter-ev2hgm?file=app.vue)
 <!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
