@@ -123,3 +123,5 @@ declare module 'nuxt-codemirror' {
     editor: HTMLDivElement | null
   }
 }
+
+export type { Statistics, CodeMirrorRef, UseCodeMirrorProps, NuxtCodeMirrorProps } from 'nuxt-codemirror'
