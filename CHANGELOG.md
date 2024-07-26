@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.1...v0.0.2)
+
+### 🩹 Fixes
+
+- Duplicate codemirror/state causing extensions not working ([75f6f97](https://github.com/ThimoDEV/nuxt-codemirror/commit/75f6f97))
+
+### 🏡 Chore
+
+- Update readme ([c0f2574](https://github.com/ThimoDEV/nuxt-codemirror/commit/c0f2574))
+- Fix tags in readme ([ad4a377](https://github.com/ThimoDEV/nuxt-codemirror/commit/ad4a377))
+- Update readme install line ([d014ff0](https://github.com/ThimoDEV/nuxt-codemirror/commit/d014ff0))
+- Update readme with credits ([6597299](https://github.com/ThimoDEV/nuxt-codemirror/commit/6597299))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.1
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.2...v0.0.1)
