@@ -3,7 +3,7 @@ import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import { type UseCodeMirrorProps } from '../types/nuxt-codemirror'
 import { getStatistics } from '../utils/utils'
-import { onBeforeUnmount, watch, watchEffect } from '#imports'
+import { watch, watchEffect } from '#imports'
 
 const External = Annotation.define<boolean>()
 

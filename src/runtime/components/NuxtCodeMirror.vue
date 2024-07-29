@@ -3,7 +3,7 @@ import type { ViewUpdate, EditorView } from '@codemirror/view'
 import type { EditorState } from '@codemirror/state'
 import { useNuxtCodeMirror } from '../composables/useNuxtCodeMirror'
 import type { NuxtCodeMirrorProps, Statistics } from '../types/nuxt-codemirror'
-import { onMounted, ref, watch, nextTick, computed, onBeforeUnmount } from '#imports'
+import { onMounted, ref, watch, computed, onBeforeUnmount } from '#imports'
 
 const editor = ref<HTMLDivElement | null>(null)
 const container = ref<HTMLDivElement | null>(null)
@@ -31,9 +31,7 @@ const emit = defineEmits<{
   (event: 'onUpdate' | 'onFocus' | 'onBlur', update: ViewUpdate): void
 }>()
 
-onMounted(async () => {
-  await nextTick()
-
+onMounted(() => {
   useNuxtCodeMirror({
     ...props,
     modelValue: modelValue.value,

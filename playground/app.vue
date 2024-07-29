@@ -26,8 +26,16 @@ const handleUpdate = (viewUpdate: ViewUpdate) => {
 
 onMounted(() => {
   if (codemirror.value) {
-    console.log('blaaaaa', codemirror.value.editor)
+    console.log('Log editorRef', codemirror.value.editor)
+    console.log('Log containerRef', codemirror.value.container)
   }
+
+  watchEffect(() => {
+    if (codemirror.value) {
+      console.log('Log StateRef', codemirror.value.state)
+      console.log('Log viewRef', codemirror.value.view)
+    }
+  })
 })
 </script>
 
