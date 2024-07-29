@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.6...v0.0.7)
+
+### 🩹 Fixes
+
+- Playground override incorrect ([8763279](https://github.com/ThimoDEV/nuxt-codemirror/commit/8763279))
+- Module types not generated on build ([e3e9a31](https://github.com/ThimoDEV/nuxt-codemirror/commit/e3e9a31))
+- On unmounted is placed inside onmounted warning ([9d65ba9](https://github.com/ThimoDEV/nuxt-codemirror/commit/9d65ba9))
+- Remove unneeded nextTick for syncing template ref ([673e99b](https://github.com/ThimoDEV/nuxt-codemirror/commit/673e99b))
+- Custom extensions not working ([c2f5844](https://github.com/ThimoDEV/nuxt-codemirror/commit/c2f5844))
+
+### 🏡 Chore
+
+- Upgrade @codemirror/view to latest version ([d655a96](https://github.com/ThimoDEV/nuxt-codemirror/commit/d655a96))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.6
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.5...v0.0.6)

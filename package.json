@@ -1,6 +1,6 @@
 {
   "name": "nuxt-codemirror",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Nuxt codemirror module",
   "repository": "https://github.com/ThimoDEV/nuxt-codemirror",
   "license": "MIT",
