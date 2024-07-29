@@ -49,10 +49,6 @@ onMounted(() => {
     stateRef: state,
     containerRef: container,
   })
-
-  /** DEBUGGING the variables exposed by defineExpose */
-  // await nextTick()
-  // console.log('test: ', view.value)
 })
 
 onBeforeUnmount(() => {

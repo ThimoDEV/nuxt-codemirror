@@ -5,13 +5,19 @@ import type { Ref } from '#imports'
 
 export interface NuxtCodeMirrorProps
   extends Omit<EditorStateConfig, 'doc' | 'extensions'> {
-  /** value of the auto created model in the editor. */
+  /** value of the auto created model in the editor. Works as underlying logic of a V-Model */
   modelValue?: string
+  /** The height value of the editor. */
   height?: string
+  /** The minimum height value of the editor. */
   minHeight?: string
+  /** The maximum height value of the editor. */
   maxHeight?: string
+  /** The width value of the editor. */
   width?: string
+  /** The minimum width value of the editor. */
   minWidth?: string
+  /** The maximum width value of the editor. */
   maxWidth?: string
   /** focus on the editor. */
   autoFocus?: boolean
@@ -81,8 +87,11 @@ export interface NuxtCodeMirrorProps
 export interface UseCodeMirrorProps extends NuxtCodeMirrorProps {
   /** Container element of the CodeMirror instance */
   container?: HTMLDivElement | null
+  /** The EditorView of the CodeMirror instance */
   viewRef: Ref<EditorView | undefined>
+  /** The EditorState of the CodeMirror instance */
   stateRef: Ref<EditorState | undefined>
+  /** Editor element of the CodeMirror instance */
   containerRef: Ref<HTMLDivElement | null>
 }
 
