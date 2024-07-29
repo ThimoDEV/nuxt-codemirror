@@ -3,7 +3,7 @@ import type { ViewUpdate, EditorView } from '@codemirror/view'
 import type { EditorState } from '@codemirror/state'
 import { useNuxtCodeMirror } from '../composables/useNuxtCodeMirror'
 import type { NuxtCodeMirrorProps, Statistics } from '../types/nuxt-codemirror'
-import { onMounted, ref, watch, nextTick, computed } from '#imports'
+import { onMounted, ref, watch, nextTick, computed, onBeforeUnmount } from '#imports'
 
 const editor = ref<HTMLDivElement | null>(null)
 const container = ref<HTMLDivElement | null>(null)
@@ -55,6 +55,13 @@ onMounted(async () => {
   /** DEBUGGING the variables exposed by defineExpose */
   // await nextTick()
   // console.log('test: ', view.value)
+})
+
+onBeforeUnmount(() => {
+  if (view.value) {
+    view.value?.destroy()
+    view.value = undefined
+  }
 })
 
 watch(() => modelValue, (newValue) => {

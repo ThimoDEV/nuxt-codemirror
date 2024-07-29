@@ -3,7 +3,7 @@ import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import { type UseCodeMirrorProps } from '../types/nuxt-codemirror'
 import { getStatistics } from '../utils/utils'
-import { onUnmounted, watch, watchEffect } from '#imports'
+import { onBeforeUnmount, watch, watchEffect } from '#imports'
 
 const External = Annotation.define<boolean>()
 
@@ -167,11 +167,4 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   },
   { immediate: true },
   )
-
-  onUnmounted(() => {
-    if (viewRef) {
-      viewRef.value?.destroy()
-      viewRef.value = undefined
-    }
-  })
 }
