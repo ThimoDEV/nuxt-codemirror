@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { javascript } from '@codemirror/lang-javascript'
 import { lineNumbersRelative } from '@uiw/codemirror-extensions-line-numbers-relative'
-import { okaidia } from '@uiw/codemirror-theme-okaidia';
+import { okaidia } from '@uiw/codemirror-theme-okaidia'
 
 import type { ViewUpdate } from '@codemirror/view'
 import type { CodeMirrorRef, Statistics } from '../src/runtime/types/nuxt-codemirror'
 
 const code = ref('console.log("Hello, CodeMirror!");')
-const theme = ref<'light' | 'dark' | 'none'>('light')
+// const theme = ref<'light' | 'dark' | 'none'>('light')
 const codemirror = ref<CodeMirrorRef>()
 
 const extensions = [lineNumbersRelative, javascript({ jsx: true, typescript: true })]
