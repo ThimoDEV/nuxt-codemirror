@@ -5,6 +5,10 @@
   "repository": "https://github.com/ThimoDEV/nuxt-codemirror",
   "license": "MIT",
   "type": "module",
+  "author": {
+    "name": "ThimoDEV",
+    "url": "https://github.com/ThimoDEV"
+  },
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
@@ -50,5 +54,11 @@
     "typescript": "latest",
     "vitest": "^2.0.3",
     "vue-tsc": "^2.0.26"
-  }
+  },
+  "keywords": [
+    "nuxt",
+    "codemirror",
+    "vue"
+  ],
+  "packageManager": "pnpm@9.6.0"
 }
