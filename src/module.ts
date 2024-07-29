@@ -35,6 +35,8 @@ export default defineNuxtModule<ModuleOptions>({
 
       // @ts-expect-error - Add alias for @codemirror/state
       config.resolve.alias['@codemirror/state'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/state')
+      // @ts-expect-error - Add alias for @codemirror/view
+      config.resolve.alias['@codemirror/view'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/view')
     })
   },
 })
