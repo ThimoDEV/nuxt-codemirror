@@ -1,4 +1,4 @@
-import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig } from '@nuxt/kit'
+import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
@@ -24,13 +24,11 @@ export default defineNuxtModule<ModuleOptions>({
       from: resolve('./runtime/composables/useNuxtCodeMirror.ts'),
     })
 
-    // _nuxt.hook('vite:extendConfig', (config) => {
-    //   config.resolve = config.resolve || {}
-    //   config.resolve.alias = config.resolve.alias || {}
+    addTypeTemplate({
+      filename: 'nuxt-codemirror.d.ts',
+      src: resolve('./runtime/types/nuxt-codemirror.d.ts'),
+    })
 
-    //   // @ts-expect-error - Add alias for @codemirror/view
-    //   config.resolve.alias['@codemirror/state'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/state')
-    // })
     extendViteConfig((config) => {
       config.resolve = config.resolve || {}
       config.resolve.alias = config.resolve.alias || {}
