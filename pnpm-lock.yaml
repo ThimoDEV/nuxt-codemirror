@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@babel/runtime':
+        specifier: ^7.25.0
+        version: 7.25.0
       '@codemirror/commands':
         specifier: ^6.6.0
         version: 6.6.0
@@ -224,6 +227,10 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
+
+  '@babel/runtime@7.25.0':
+    resolution: {integrity: sha512-7dRy4DwXwtzBrPbZflqxnvfxLF8kdZXPkhymtDeFoFqE6ldzjQFgYTtYIFARcLEYDrqfBfYcZt1WqFxRoyC9Rw==}
+    engines: {node: '>=6.9.0'}
 
   '@babel/standalone@7.24.10':
     resolution: {integrity: sha512-nGC37EKfmelpyCXto1pw6SBkD5ZQRdMbL6WISi28xWit9dtiy9dChU1WgEfzturUTxrmOGkMDRrCydFMA7uOaQ==}
@@ -3526,6 +3533,9 @@ packages:
     resolution: {integrity: sha512-J8rn6v4DBb2nnFqkqwy6/NnTYMcgLA+sLr0iIO41qpv0n+ngb7ksag2tMRl0inb1bbO/esUwzW1vbJi7K0sI0g==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  regenerator-runtime@0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+
   regexp-ast-analysis@0.7.1:
     resolution: {integrity: sha512-sZuz1dYW/ZsfG17WSAG7eS85r5a0dDsvg+7BiiYR5o6lKCAtUrEwdmRmaGF6rwVj3LcmAeYkOWKEPlbPzN3Y3A==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
@@ -4571,6 +4581,10 @@ snapshots:
       '@babel/plugin-syntax-typescript': 7.24.7(@babel/core@7.24.9)
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/runtime@7.25.0':
+    dependencies:
+      regenerator-runtime: 0.14.1
 
   '@babel/standalone@7.24.10': {}
 
@@ -8244,6 +8258,8 @@ snapshots:
   refa@0.12.1:
     dependencies:
       '@eslint-community/regexpp': 4.11.0
+
+  regenerator-runtime@0.14.1: {}
 
   regexp-ast-analysis@0.7.1:
     dependencies:
