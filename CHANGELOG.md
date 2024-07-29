@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.8...v0.0.9)
+
+### 🏡 Chore
+
+- Update package.json ([a7bf947](https://github.com/ThimoDEV/nuxt-codemirror/commit/a7bf947))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.8
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.7...v0.0.8)
