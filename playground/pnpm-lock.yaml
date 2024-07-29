@@ -17,6 +17,9 @@ importers:
       '@uiw/codemirror-extensions-line-numbers-relative':
         specifier: ^4.23.0
         version: 4.23.0(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
+      '@uiw/codemirror-theme-okaidia':
+        specifier: ^4.23.0
+        version: 4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
       nuxt:
         specifier: ^3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@22.0.0)(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.19.1)(terser@5.31.3)(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3))
@@ -1011,6 +1014,16 @@ packages:
   '@uiw/codemirror-extensions-line-numbers-relative@4.23.0':
     resolution: {integrity: sha512-yAzTW3sJbn1KKdbxxKZjS3/lCmkVsNtrwN54huX9wsHvj4WeILKb0mT+0/A7nUFyy3dGHwVt0ZIZ6Yph6h3qvQ==}
     peerDependencies:
+      '@codemirror/state': '>=6.0.0'
+      '@codemirror/view': '>=6.0.0'
+
+  '@uiw/codemirror-theme-okaidia@4.23.0':
+    resolution: {integrity: sha512-J0FGui+ekMfws1ulMWfAohYXYlxOA1r6aHFAMPcZ9/0Gs+bWMm0Imx/m4pA0wYRHwEzaP6qzOl0IwfTGc04QPA==}
+
+  '@uiw/codemirror-themes@4.23.0':
+    resolution: {integrity: sha512-9fiji9xooZyBQozR1i6iTr56YP7j/Dr/VgsNWbqf5Szv+g+4WM1iZuiDGwNXmFMWX8gbkDzp6ASE21VCPSofWw==}
+    peerDependencies:
+      '@codemirror/language': '>=6.0.0'
       '@codemirror/state': '>=6.0.0'
       '@codemirror/view': '>=6.0.0'
 
@@ -4180,6 +4193,20 @@ snapshots:
 
   '@uiw/codemirror-extensions-line-numbers-relative@4.23.0(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
     dependencies:
+      '@codemirror/state': 6.4.1
+      '@codemirror/view': 6.29.1
+
+  '@uiw/codemirror-theme-okaidia@4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
+    dependencies:
+      '@uiw/codemirror-themes': 4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
+    transitivePeerDependencies:
+      - '@codemirror/language'
+      - '@codemirror/state'
+      - '@codemirror/view'
+
+  '@uiw/codemirror-themes@4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
+    dependencies:
+      '@codemirror/language': 6.10.2
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.29.1
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { javascript } from '@codemirror/lang-javascript'
 import { lineNumbersRelative } from '@uiw/codemirror-extensions-line-numbers-relative'
+import { okaidia } from '@uiw/codemirror-theme-okaidia';
 
 import type { ViewUpdate } from '@codemirror/view'
 import type { CodeMirrorRef, Statistics } from '../src/runtime/types/nuxt-codemirror'
@@ -45,7 +46,7 @@ onMounted(() => {
     v-model="code"
     :extensions="extensions"
     style="width: 500px; height: 400px;"
-    :theme="theme"
+    :theme="okaidia"
     placeholder="Enter your code here..."
     :auto-focus="true"
     :editable="true"

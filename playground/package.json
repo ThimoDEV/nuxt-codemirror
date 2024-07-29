@@ -11,6 +11,7 @@
     "@codemirror/lang-javascript": "^6.2.2",
     "@nuxt/kit": "^3.12.4",
     "@uiw/codemirror-extensions-line-numbers-relative": "^4.23.0",
+    "@uiw/codemirror-theme-okaidia": "^4.23.0",
     "nuxt": "^3.12.4"
   }
 }
