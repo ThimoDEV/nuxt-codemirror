@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Add babel/runtime to support more extensions ([802f944](https://github.com/ThimoDEV/nuxt-codemirror/commit/802f944))
+
+### 📖 Documentation
+
+- Add docs for components and update FAQ ([0bca0d6](https://github.com/ThimoDEV/nuxt-codemirror/commit/0bca0d6))
+- Cleanup code and add documentation ([4e64130](https://github.com/ThimoDEV/nuxt-codemirror/commit/4e64130))
+- Add tested section ([182c3c4](https://github.com/ThimoDEV/nuxt-codemirror/commit/182c3c4))
+
+### 🏡 Chore
+
+- Add playground theme example ([2895720](https://github.com/ThimoDEV/nuxt-codemirror/commit/2895720))
+- Fix playground issue ([9e5ca76](https://github.com/ThimoDEV/nuxt-codemirror/commit/9e5ca76))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.7
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.6...v0.0.7)
