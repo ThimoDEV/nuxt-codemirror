@@ -168,8 +168,6 @@ const state = ref<EditorState>()
 
 For more information on how this is implemented see the [source](https://github.com/ThimoDEV/nuxt-codemirror/blob/master/src/runtime/components/NuxtCodeMirror.vue), to get inspiration for your own version
 
-
-
 ## Credits
 
 This Nuxt module wouldn't be possible without:
@@ -186,6 +184,19 @@ npx nuxi module add nuxt-codemirror
 ```
 
 That's it! You can now use Nuxt-codemirror in your Nuxt app ✨
+
+### Tested extensions
+
+Below is a list of tested extensions you can use as of @codemirror/view version 6.29.1 and @codemirror/state verion 6.4.1
+
+- [LineNumbersRelative](https://www.npmjs.com/package/@uiw/codemirror-extensions-line-numbers-relative)
+- [lang-javascript](https://www.npmjs.com/package/@codemirror/lang-javascript)
+- [IndentationMarkers](https://github.com/replit/codemirror-indentation-markers)
+- [interact](https://github.com/replit/codemirror-interact)
+- [Themes -- like](https://www.npmjs.com/package/@uiw/codemirror-theme-okaidia)
+- [Zebra Stripes](https://www.npmjs.com/package/@uiw/codemirror-extensions-zebra-stripes)
+
+and many more...
 
 ## Contribution
 
