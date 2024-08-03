@@ -1,5 +1,3 @@
-
-
 # Nuxt CodeMirror
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -31,11 +29,12 @@ Read the CodeMirror Reference guide for more in depth information: [CodeMirror d
 This component is auto imported and is the CodeMirror wrapper.
 
 Component props:
-```
+
+```ts
 interface NuxtCodeMirrorProps
   extends Omit<EditorStateConfig, 'doc' | 'extensions'> {
   /** value of the auto created model in the editor. Works as underlying logic of a V-Model */
-  modelValue?: string                                                                                    This is linked to a Vue V-Model
+  modelValue?: string
   /** The height value of the editor. */
   height?: string
   /** The minimum height value of the editor. */
@@ -116,7 +115,7 @@ interface NuxtCodeMirrorProps
 
 The NuxtCodeMirror component accepts a Template ref and exposes The CodeMirror div element, the Editor view and the Editor State
 
-```
+```ts
 interface CodeMirrorRef {
   /** Container element of the CodeMirror instance */
   container: HTMLDivElement | null
@@ -136,26 +135,20 @@ An example on how to do this can be found here: [🏀 Online playground](https:/
 If for some reason you want to write your own CodeMirror component then you can do that too :)
 
 ### UseNuxtCodeMirror.ts
+
 This composable is the underlying magic of the NuxtCodeMirror component and is also auto imported.
 
 It requires minimum 3 Refs, one for the div element CodeMirror will connect to, one for the CodeMirror view, and one for the CodeMirror state
 
-Make sure you execute the composable in onMounted otherwise you will get an eror because codemirror can't be linked to the DOM.
+Make sure you execute the composable in `onMounted` otherwise you will get an eror because codemirror can't be linked to the DOM.
 
-```
-  /** The EditorView of the CodeMirror instance */
-  viewRef: Ref<EditorView | undefined>
-  /** The EditorState of the CodeMirror instance */
-  stateRef: Ref<EditorState | undefined>
-  /** Editor element of the CodeMirror instance */
-  containerRef: Ref<HTMLDivElement | null>
-
+```ts
 const editor = ref<HTMLDivElement | null>(null)
 const container = ref<HTMLDivElement | null>(null)
 const view = ref<EditorView>()
 const state = ref<EditorState>()
 
-  onMounted(() => {
+onMounted(() => {
   useNuxtCodeMirror({
     ...props,
     container: editor.value,
