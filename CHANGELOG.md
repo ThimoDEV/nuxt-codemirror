@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.9...v0.0.10)
+
+### 🩹 Fixes
+
+- **deps:** Update dependency @codemirror/view to v6.30.0 ([551736c](https://github.com/ThimoDEV/nuxt-codemirror/commit/551736c))
+
+### 📖 Documentation
+
+- **readme:** Improvements ([6c2b035](https://github.com/ThimoDEV/nuxt-codemirror/commit/6c2b035))
+
+### 🏡 Chore
+
+- Add renovate.json ([80d088d](https://github.com/ThimoDEV/nuxt-codemirror/commit/80d088d))
+- Fix linting issues ([c1595a0](https://github.com/ThimoDEV/nuxt-codemirror/commit/c1595a0))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+- Sébastien Chopin <seb@nuxtlabs.com>
+
 ## v0.0.9
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.8...v0.0.9)
