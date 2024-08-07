@@ -1,4 +1,4 @@
-import { type Extension } from '@codemirror/state'
+import type { Extension } from '@codemirror/state'
 import { indentWithTab } from '@codemirror/commands'
 import { basicSetup, type BasicSetupOptions } from '@uiw/codemirror-extensions-basic-setup'
 import { EditorView, keymap, placeholder } from '@codemirror/view'

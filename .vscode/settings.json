@@ -14,7 +14,7 @@
   "workbench.preferredDarkColorTheme": "Default Dark+",
   "workbench.preferredLightColorTheme": "Default Dark+",
   "workbench.productIconTheme": "Default",
-  "workbench.sideBar.location": "left",
+  "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.expandMode": "singleClick",
   "workbench.tree.indent": 25,

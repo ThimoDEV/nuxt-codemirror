@@ -1,15 +1,15 @@
 import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
-export interface ModuleOptions {}
+// export interface ModuleOptions {}
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   meta: {
     name: 'nuxt-codemirror',
     configKey: 'nuxtCodemirror',
   },
   // Default configuration options of the Nuxt module
-  defaults: {},
+  // defaults: {},
   setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url)
 

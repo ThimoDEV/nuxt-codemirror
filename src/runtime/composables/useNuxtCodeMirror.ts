@@ -1,7 +1,7 @@
 import { Annotation, EditorState, StateEffect, type Extension } from '@codemirror/state'
 import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
-import { type UseCodeMirrorProps } from '../types/nuxt-codemirror'
+import type { UseCodeMirrorProps } from '../types/nuxt-codemirror'
 import { getStatistics } from '../utils/utils'
 import { watch, watchEffect } from '#imports'
 
@@ -67,10 +67,16 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
       onChange(value, viewUpdate)
     }
 
-    if (viewUpdate.focusChanged) {
-      viewUpdate.view.hasFocus ? onFocus && onFocus(viewUpdate) : onBlur && onBlur(viewUpdate)
+    onStatistics?.(getStatistics(viewUpdate))
+
+    if (!viewUpdate.focusChanged) return
+
+    if (viewUpdate.view.hasFocus) {
+      onFocus?.(viewUpdate)
     }
-    onStatistics && onStatistics(getStatistics(viewUpdate))
+    else {
+      onBlur?.(viewUpdate)
+    }
   })
 
   const defaultExtensions = getDefaultExtensions({
@@ -107,7 +113,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
           root,
         })
         viewRef.value = viewCurrent
-        onCreateEditor && onCreateEditor(viewCurrent, stateCurrent)
+        onCreateEditor?.(viewCurrent, stateCurrent)
       }
     }
   })
