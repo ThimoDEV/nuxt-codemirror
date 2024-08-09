@@ -5,7 +5,7 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Codemirror as a Nuxt module. Demo preview: Coming soon
+Codemirror as a Nuxt module. Demo can be found in below playground
 
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
@@ -22,7 +22,7 @@ Codemirror as a Nuxt module. Demo preview: Coming soon
 
 ## Documentation
 
-This module consists of one Component, one Composable and a few types for you to use. 
+This module consists of one Component, one Composable and a few types for you to use.
 Read the CodeMirror Reference guide for more in depth information: [CodeMirror docs](https://codemirror.net/docs/ref/)
 
 ### NuxtCodeMirror.vue
@@ -128,7 +128,7 @@ interface CodeMirrorRef {
 }
 ```
 
-If you need access to the underlying CodeMirror instance You can do so by adding a ref with the same name as your Template ref. 
+If you need access to the underlying CodeMirror instance You can do so by adding a ref with the same name as your Template ref.
 An example on how to do this can be found here: [🏀 Online playground](https://stackblitz.com/edit/nuxt-starter-ev2hgm?file=app.vue)
 
 
