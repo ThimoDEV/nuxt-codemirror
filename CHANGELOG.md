@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.10...v0.0.11)
+
+### 🩹 Fixes
+
+- V-model not updating codemirror instance if changed externally ([fbfa2cb](https://github.com/ThimoDEV/nuxt-codemirror/commit/fbfa2cb))
+
+### 🏡 Chore
+
+- **docs:** Update readme ([06b149a](https://github.com/ThimoDEV/nuxt-codemirror/commit/06b149a))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.10
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.9...v0.0.10)
