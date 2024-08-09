@@ -1,12 +1,13 @@
 import type { EditorState, EditorStateConfig, Extension, StateField, EditorSelection, SelectionRange, Line } from '@codemirror/state'
 import type { EditorView, ViewUpdate } from '@codemirror/view'
 import type { BasicSetupOptions } from '@uiw/codemirror-extensions-basic-setup'
+import type { ModelRef } from 'vue'
 import type { Ref } from '#imports'
 
 export interface NuxtCodeMirrorProps
   extends Omit<EditorStateConfig, 'doc' | 'extensions'> {
   /** value of the auto created model in the editor. Works as underlying logic of a V-Model */
-  modelValue?: string
+  modelValue?: ModelRef<string | undefined, string>
   /** The height value of the editor. */
   height?: string
   /** The minimum height value of the editor. */

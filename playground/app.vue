@@ -57,4 +57,8 @@ onMounted(() => {
     @on-update="handleUpdate"
   />
   <div>{{ code }}</div>
+  <input
+    v-model="code"
+    type="text"
+  >
 </template>

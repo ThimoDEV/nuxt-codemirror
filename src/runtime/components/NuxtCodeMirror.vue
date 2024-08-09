@@ -34,7 +34,7 @@ const emit = defineEmits<{
 onMounted(() => {
   useNuxtCodeMirror({
     ...props,
-    modelValue: modelValue.value,
+    modelValue: modelValue,
     onChange: (value, viewUpdate) => {
       modelValue.value = value
       emit('onChange', value, viewUpdate)

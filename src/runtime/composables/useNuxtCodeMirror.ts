@@ -11,7 +11,7 @@ const emptyExtensions: Extension[] = []
 
 export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   const {
-    modelValue: value = '',
+    modelValue: value,
     selection,
     onChange,
     onStatistics,
@@ -58,7 +58,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
     if (
       viewUpdate.docChanged
       && typeof onChange === 'function'
-      // Fix echoing of the remote changes:
+      // Fix echoing/ infinite update loops of the remote changes:
       // If transaction is market as remote we don't have to call `onChange` handler again
       && !viewUpdate.transactions.some(tr => tr.annotation(External))
     ) {
@@ -98,7 +98,7 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
   watchEffect(() => {
     if (containerRef.value && !stateRef?.value) {
       const config = {
-        doc: value,
+        doc: value?.value,
         selection,
         extensions: getExtensions,
       }
@@ -158,9 +158,9 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
     }
 
     const currentValue = viewRef.value ? viewRef.value.state.doc.toString() : ''
-    if (viewRef.value && value !== currentValue) {
+    if (viewRef.value && value.value !== currentValue) {
       viewRef.value.dispatch({
-        changes: { from: 0, to: currentValue.length, insert: value || '' },
+        changes: { from: 0, to: currentValue.length, insert: value.value || '' },
         annotations: [External.of(true)],
       })
     }
