@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@babel/runtime':
         specifier: ^7.25.0
-        version: 7.25.0
+        version: 7.25.4
       '@codemirror/commands':
         specifier: ^6.6.0
         version: 6.6.0
@@ -217,8 +217,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime@7.25.0':
-    resolution: {integrity: sha512-7dRy4DwXwtzBrPbZflqxnvfxLF8kdZXPkhymtDeFoFqE6ldzjQFgYTtYIFARcLEYDrqfBfYcZt1WqFxRoyC9Rw==}
+  '@babel/runtime@7.25.4':
+    resolution: {integrity: sha512-DSgLeL/FNcpXuzav5wfYvHCGvynXkJbn3Zvc3823AEe9nPwW9IK4UoCSS5yGymmQzN0pCPvivtgS6/8U2kkm1w==}
     engines: {node: '>=6.9.0'}
 
   '@babel/standalone@7.25.4':
@@ -4731,7 +4731,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/runtime@7.25.0':
+  '@babel/runtime@7.25.4':
     dependencies:
       regenerator-runtime: 0.14.1
 
