@@ -19,7 +19,7 @@ importers:
         version: 4.23.4(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
       '@uiw/codemirror-theme-okaidia':
         specifier: ^4.23.0
-        version: 4.23.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
+        version: 4.23.5(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
       nuxt:
         specifier: ^3.12.4
         version: 3.13.2(@parcel/watcher@2.4.1)(@types/node@22.5.5)(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))(webpack-sources@3.2.3)
@@ -1013,11 +1013,11 @@ packages:
       '@codemirror/state': '>=6.0.0'
       '@codemirror/view': '>=6.0.0'
 
-  '@uiw/codemirror-theme-okaidia@4.23.4':
-    resolution: {integrity: sha512-MTAA/uC2bYJ5OvGj9oRtBktxhNSo8XAzYJhYHMZbw3w9ezBZlc+4HbVGNw7hRQTwApHcRDHaJmDeUHJ9JKY/3g==}
+  '@uiw/codemirror-theme-okaidia@4.23.5':
+    resolution: {integrity: sha512-0O5f7xDlBU8QInNzZKmhjoia0eyEqWcPVF2EF+djGue4L8dyr9nyWpkUZFHiXdMA/CWr5Mdv8uepv7Onj4lIew==}
 
-  '@uiw/codemirror-themes@4.23.4':
-    resolution: {integrity: sha512-rnuNUOTVq+B9ym2V7tqjGWhAr+4dyVRGYan2pIRFPRNpYTcr7XsbcGRy6DBkHK5uVK8tAiqC1Gn7vPSdC1nZXg==}
+  '@uiw/codemirror-themes@4.23.5':
+    resolution: {integrity: sha512-yWUTpaVroxIxjKASQAmKaYy+ZYtF+YB6d8sVmSRK2TVD13M+EWvVT2jBGFLqR1UVg7G0W/McAy8xdeTg+a3slg==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
       '@codemirror/state': '>=6.0.0'
@@ -4221,15 +4221,15 @@ snapshots:
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.29.1
 
-  '@uiw/codemirror-theme-okaidia@4.23.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
+  '@uiw/codemirror-theme-okaidia@4.23.5(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
     dependencies:
-      '@uiw/codemirror-themes': 4.23.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
+      '@uiw/codemirror-themes': 4.23.5(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
     transitivePeerDependencies:
       - '@codemirror/language'
       - '@codemirror/state'
       - '@codemirror/view'
 
-  '@uiw/codemirror-themes@4.23.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
+  '@uiw/codemirror-themes@4.23.5(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
     dependencies:
       '@codemirror/language': 6.10.2
       '@codemirror/state': 6.4.1
