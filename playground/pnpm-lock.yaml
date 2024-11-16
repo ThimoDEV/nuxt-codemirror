@@ -16,7 +16,7 @@ importers:
         version: 3.13.2(magicast@0.3.5)(rollup@4.21.3)(webpack-sources@3.2.3)
       '@uiw/codemirror-extensions-line-numbers-relative':
         specifier: ^4.23.0
-        version: 4.23.5(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
+        version: 4.23.6(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
       '@uiw/codemirror-theme-okaidia':
         specifier: ^4.23.0
         version: 4.23.5(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)
@@ -1007,8 +1007,8 @@ packages:
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
-  '@uiw/codemirror-extensions-line-numbers-relative@4.23.5':
-    resolution: {integrity: sha512-fafDzzOo4SY5jEpkmlH71qNYfcP/rpqU0LZuH2R8D6ga0jjscLeba451swIF27Yn6eTHeDjpDEK+Pe9V0Sh10A==}
+  '@uiw/codemirror-extensions-line-numbers-relative@4.23.6':
+    resolution: {integrity: sha512-KdS+Zu9YmWuTfNGJMV8pzYAxVc3Qm9EU2EQO333hEQq2rsn/Z4l+/gP25WV2QZvpvNKG5P01nzVKD2NIMH4omQ==}
     peerDependencies:
       '@codemirror/state': '>=6.0.0'
       '@codemirror/view': '>=6.0.0'
@@ -4216,7 +4216,7 @@ snapshots:
 
   '@types/resolve@1.20.2': {}
 
-  '@uiw/codemirror-extensions-line-numbers-relative@4.23.5(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
+  '@uiw/codemirror-extensions-line-numbers-relative@4.23.6(@codemirror/state@6.4.1)(@codemirror/view@6.29.1)':
     dependencies:
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.29.1
