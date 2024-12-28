@@ -1,6 +1,53 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.11...v0.0.12)
+
+### 🩹 Fixes
+
+- **deps:** Update dependency @codemirror/view to v6.32.0 ([756b89e](https://github.com/ThimoDEV/nuxt-codemirror/commit/756b89e))
+- **deps:** Update dependency @babel/runtime to v7.25.4 ([9ce4bf2](https://github.com/ThimoDEV/nuxt-codemirror/commit/9ce4bf2))
+- **deps:** Update nuxtjs monorepo to v3.13.0 ([df6f75b](https://github.com/ThimoDEV/nuxt-codemirror/commit/df6f75b))
+- **deps:** Update dependency @codemirror/view to v6.33.0 ([3a1c90d](https://github.com/ThimoDEV/nuxt-codemirror/commit/3a1c90d))
+- **deps:** Update dependency @babel/runtime to v7.25.6 ([af05cc3](https://github.com/ThimoDEV/nuxt-codemirror/commit/af05cc3))
+- **deps:** Update dependency @codemirror/commands to v6.6.1 ([87f9cf5](https://github.com/ThimoDEV/nuxt-codemirror/commit/87f9cf5))
+- **deps:** Update nuxtjs monorepo to v3.13.1 ([f1cc79b](https://github.com/ThimoDEV/nuxt-codemirror/commit/f1cc79b))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.1 ([5a15e70](https://github.com/ThimoDEV/nuxt-codemirror/commit/5a15e70))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.1 ([ac39581](https://github.com/ThimoDEV/nuxt-codemirror/commit/ac39581))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.1 ([81ecb16](https://github.com/ThimoDEV/nuxt-codemirror/commit/81ecb16))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.2 ([a2308b4](https://github.com/ThimoDEV/nuxt-codemirror/commit/a2308b4))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.2 ([e85e8e7](https://github.com/ThimoDEV/nuxt-codemirror/commit/e85e8e7))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.2 ([b611740](https://github.com/ThimoDEV/nuxt-codemirror/commit/b611740))
+- **deps:** Update nuxtjs monorepo to v3.13.2 ([144d132](https://github.com/ThimoDEV/nuxt-codemirror/commit/144d132))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.3 ([e9c962b](https://github.com/ThimoDEV/nuxt-codemirror/commit/e9c962b))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.3 ([27d0086](https://github.com/ThimoDEV/nuxt-codemirror/commit/27d0086))
+- **deps:** Update codemirror ([c9a0d06](https://github.com/ThimoDEV/nuxt-codemirror/commit/c9a0d06))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.3 ([380b5f1](https://github.com/ThimoDEV/nuxt-codemirror/commit/380b5f1))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.4 ([496ec5f](https://github.com/ThimoDEV/nuxt-codemirror/commit/496ec5f))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.4 ([92fa514](https://github.com/ThimoDEV/nuxt-codemirror/commit/92fa514))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.4 ([373326f](https://github.com/ThimoDEV/nuxt-codemirror/commit/373326f))
+- **deps:** Update dependency @babel/runtime to v7.25.7 ([0473cef](https://github.com/ThimoDEV/nuxt-codemirror/commit/0473cef))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.5 ([a595e50](https://github.com/ThimoDEV/nuxt-codemirror/commit/a595e50))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.5 ([fd364e2](https://github.com/ThimoDEV/nuxt-codemirror/commit/fd364e2))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.5 ([03630ab](https://github.com/ThimoDEV/nuxt-codemirror/commit/03630ab))
+- **deps:** Update dependency @codemirror/commands to v6.7.0 ([b051a57](https://github.com/ThimoDEV/nuxt-codemirror/commit/b051a57))
+- **deps:** Update dependency @uiw/codemirror-extensions-line-numbers-relative to v4.23.6 ([292b9c9](https://github.com/ThimoDEV/nuxt-codemirror/commit/292b9c9))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.6 ([ac997dd](https://github.com/ThimoDEV/nuxt-codemirror/commit/ac997dd))
+- **deps:** Update codemirror ([42b6a65](https://github.com/ThimoDEV/nuxt-codemirror/commit/42b6a65))
+- **deps:** Update dependency @uiw/codemirror-extensions-basic-setup to v4.23.7 ([f2ac049](https://github.com/ThimoDEV/nuxt-codemirror/commit/f2ac049))
+- **deps:** Update dependency @uiw/codemirror-theme-okaidia to v4.23.7 ([9edd7f0](https://github.com/ThimoDEV/nuxt-codemirror/commit/9edd7f0))
+- **deps:** Update dependency @babel/runtime to v7.26.0 ([ffd5994](https://github.com/ThimoDEV/nuxt-codemirror/commit/ffd5994))
+
+### 🏡 Chore
+
+- Update package.json homepage and lockfile ([ac0f22a](https://github.com/ThimoDEV/nuxt-codemirror/commit/ac0f22a))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](http://github.com/ThimoDEV))
+
 ## v0.0.11
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.10...v0.0.11)
