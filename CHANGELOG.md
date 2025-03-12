@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.13
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.12...v0.0.13)
+
+### 🩹 Fixes
+
+- **deps:** Update codemirror ([3e4e70c](https://github.com/ThimoDEV/nuxt-codemirror/commit/3e4e70c))
+- **deps:** Update dependency @babel/runtime to v7.26.10 ([3348125](https://github.com/ThimoDEV/nuxt-codemirror/commit/3348125))
+- Seems highlighting works now ([7d5deb0](https://github.com/ThimoDEV/nuxt-codemirror/commit/7d5deb0))
+
+### 🏡 Chore
+
+- Updated playground packages ([4917b9b](https://github.com/ThimoDEV/nuxt-codemirror/commit/4917b9b))
+- Update packages and playground ([7286703](https://github.com/ThimoDEV/nuxt-codemirror/commit/7286703))
+- Cleanup unused imports ([5c43151](https://github.com/ThimoDEV/nuxt-codemirror/commit/5c43151))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+
 ## v0.0.12
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.11...v0.0.12)
