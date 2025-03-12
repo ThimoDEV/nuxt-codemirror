@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { javascript } from '@codemirror/lang-javascript'
 import type { ViewUpdate } from '@codemirror/view'
-import { lineNumbersRelative } from '@uiw/codemirror-extensions-line-numbers-relative'
-import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import type { CodeMirrorRef, Statistics } from '../src/runtime/types/nuxt-codemirror'
 
 const code = ref('console.log("Hello, CodeMirror!");')
