@@ -1,9 +1,11 @@
+import { javascript } from '@codemirror/lang-javascript';
 import { Annotation, EditorState, StateEffect, type Extension } from '@codemirror/state'
 import { EditorView, type ViewUpdate } from '@codemirror/view'
 import { getDefaultExtensions } from '../getDefaultExtensions'
 import type { UseCodeMirrorProps } from '../types/nuxt-codemirror'
 import { getStatistics } from '../utils/utils'
 import { watch, watchEffect } from '#imports'
+import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language'
 
 const External = Annotation.define<boolean>()
 
@@ -88,11 +90,14 @@ export function useNuxtCodeMirror(props: UseCodeMirrorProps) {
     basicSetup: defaultBasicSetup,
   })
 
-  let getExtensions = [updateListener, defaultThemeOption, ...defaultExtensions]
+  // const x = syntaxHighlighting(defaultHighlightStyle)
+
+  let getExtensions = [defaultExtensions, updateListener, defaultThemeOption]
 
   if (onUpdate && typeof onUpdate === 'function') {
     getExtensions.push(EditorView.updateListener.of(onUpdate))
   }
+
   getExtensions = getExtensions.concat(extensions)
 
   watchEffect(() => {

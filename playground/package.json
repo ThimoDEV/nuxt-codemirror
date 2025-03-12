@@ -19,7 +19,6 @@
     "@codemirror/search": "^6.5.10",
     "@codemirror/state": "6.5.2",
     "@codemirror/view": "6.36.4",
-    "codemirror": "^6.0.1",
     "nuxt": "^3.16.0"
   }
 }

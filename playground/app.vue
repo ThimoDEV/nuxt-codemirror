@@ -2,6 +2,7 @@
 import { javascript } from '@codemirror/lang-javascript'
 import type { ViewUpdate } from '@codemirror/view'
 import { lineNumbersRelative } from '@uiw/codemirror-extensions-line-numbers-relative'
+import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import type { CodeMirrorRef, Statistics } from '../src/runtime/types/nuxt-codemirror'
 
 const code = ref('console.log("Hello, CodeMirror!");')
@@ -37,23 +38,23 @@ onMounted(() => {
 </script>
 
 <template>
-    <NuxtCodeMirror
-      ref="codemirror"
-      v-model="code"
-      :extensions="[lineNumbersRelative, javascript()]"
-      style="width: 500px; height: 400px;"
-      placeholder="Enter your code here..."
-      :auto-focus="true"
-      :basic-setup="true"
-      :editable="true"
-      :indent-with-tab="true"
-      @on-change="handleChange"
-      @statistics="handleStatistics"
-      @on-update="handleUpdate"
-    />
-    <div>{{ code }}</div>
-    <input
-      v-model="code"
-      type="text"
-    >
+  <NuxtCodeMirror
+    ref="codemirror"
+    v-model="code"
+    style="width: 500px; height: 400px;"
+    placeholder="Enter your code here..."
+    :auto-focus="true"
+    :editable="true"
+    :extensions="[javascript()]"
+    :basic-setup="true"
+    :indent-with-tab="true"
+    @on-change="handleChange"
+    @statistics="handleStatistics"
+    @on-update="handleUpdate"
+  />
+  <div>{{ code }}</div>
+  <input
+    v-model="code"
+    type="text"
+  >
 </template>

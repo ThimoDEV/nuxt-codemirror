@@ -77,11 +77,11 @@ export const minimalSetup: Extension = (() => [
   highlightSpecialChars(),
   history(),
   drawSelection(),
-  syntaxHighlighting(defaultHighlightStyle, {fallback: true}),
+  syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
   keymap.of([
     ...defaultKeymap,
     ...historyKeymap,
-  ])
+  ]),
 ])()
 
 /**
@@ -122,7 +122,7 @@ export const basicSetup = (options: BasicSetupOptions = {}): Extension[] => {
   if (options.allowMultipleSelections !== false) extensions.push(EditorState.allowMultipleSelections.of(true))
   if (options.indentOnInput !== false) extensions.push(indentOnInput())
   if (options.syntaxHighlighting !== false)
-    extensions.push(syntaxHighlighting(defaultHighlightStyle, { fallback: true }))
+    extensions.push(syntaxHighlighting(defaultHighlightStyle))
   if (options.bracketMatching !== false) extensions.push(bracketMatching())
   if (options.closeBrackets !== false) extensions.push(closeBrackets())
   if (options.autocompletion !== false) extensions.push(autocompletion())
@@ -151,10 +151,10 @@ export const getDefaultExtensions = (optios: DefaultExtensionsOptions = {}): Ext
   }
   if (defaultBasicSetup) {
     if (typeof defaultBasicSetup === 'boolean') {
-      getExtensions.unshift(...basicSetup())
+      getExtensions.push(basicSetup())
     }
     else {
-      getExtensions.unshift(...basicSetup(defaultBasicSetup))
+      getExtensions.unshift(minimalSetup)
     }
   }
   if (placeholderStr) {
@@ -180,5 +180,5 @@ export const getDefaultExtensions = (optios: DefaultExtensionsOptions = {}): Ext
     getExtensions.push(EditorState.readOnly.of(true))
   }
 
-  return [...getExtensions]
+  return getExtensions
 }
