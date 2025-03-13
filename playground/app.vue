@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { javascript } from '@codemirror/lang-javascript'
 import type { ViewUpdate } from '@codemirror/view'
+import { minimalSetup } from 'codemirror'
 import type { CodeMirrorRef, Statistics } from '../src/runtime/types/nuxt-codemirror'
 
 const code = ref('console.log("Hello, CodeMirror!");')
@@ -34,6 +35,8 @@ onMounted(() => {
   })
 })
 </script>
+
+<!-- Adding minimalSetup in the extensions array makes highlighting work, while it should work with basicSetup == true -->
 
 <template>
   <NuxtCodeMirror
