@@ -44,7 +44,8 @@
     "@codemirror/state": "6.5.2",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@codemirror/view": "6.36.4",
-    "@nuxt/kit": "^3.16.0"
+    "@nuxt/kit": "^3.16.0",
+    "codemirror": "^6.0.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.2.1",
@@ -65,5 +66,5 @@
     "codemirror",
     "vue"
   ],
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.6.5"
 }

@@ -30,6 +30,7 @@ import {
   foldKeymap,
 } from '@codemirror/language'
 import { lintKeymap } from '@codemirror/lint'
+import { minimalSetup } from 'codemirror'
 import { defaultLightThemeOption } from './theme/light'
 
 export * from '@codemirror/theme-one-dark'
@@ -73,7 +74,7 @@ export interface DefaultExtensionsOptions {
   editable?: boolean
 }
 
-export const minimalSetup: Extension = (() => [
+export const minimalSetup2: Extension = (() => [
   highlightSpecialChars(),
   history(),
   drawSelection(),
@@ -154,7 +155,7 @@ export const getDefaultExtensions = (optios: DefaultExtensionsOptions = {}): Ext
       getExtensions.push(basicSetup())
     }
     else {
-      getExtensions.unshift(minimalSetup)
+      getExtensions.unshift(basicSetup(defaultBasicSetup))
     }
   }
   if (placeholderStr) {
