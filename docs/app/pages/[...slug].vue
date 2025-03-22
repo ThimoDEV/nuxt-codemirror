@@ -1,9 +1,10 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
 import { findPageHeadline } from '#ui-pro/utils/content'
 
 definePageMeta({
-  layout: 'docs'
+  layout: 'docs',
 })
 
 const route = useRoute()
@@ -17,7 +18,7 @@ if (!page.value) {
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings('docs', route.path, {
-    fields: ['description']
+    fields: ['description'],
   })
 })
 
@@ -25,7 +26,7 @@ useSeoMeta({
   title: page.value.seo.title,
   ogTitle: `${page.value.seo.title} - ${seo?.siteName}`,
   description: page.value.seo.description,
-  ogDescription: page.value.seo.description
+  ogDescription: page.value.seo.description,
 })
 
 const headline = computed(() => findPageHeadline(navigation?.value, page.value))
@@ -33,7 +34,7 @@ const headline = computed(() => findPageHeadline(navigation?.value, page.value))
 defineOgImageComponent('Docs', {
   title: page.value.title,
   description: page.value.description,
-  headline: headline.value
+  headline: headline.value,
 })
 
 const links = computed(() => {
@@ -43,7 +44,7 @@ const links = computed(() => {
       icon: 'i-lucide-external-link',
       label: 'Edit this page',
       to: `${toc.bottom.edit}/${page?.value?.stem}.${page?.value?.extension}`,
-      target: '_blank'
+      target: '_blank',
     })
   }
 

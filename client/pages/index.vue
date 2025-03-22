@@ -1,4 +1,4 @@
-<!-- eslint-disable max-len -->
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
 
@@ -7,20 +7,38 @@ const client = useDevtoolsClient()
 
 <template>
   <div class="relative n-bg-base flex flex-col h-screen">
-    <header class="p4 flex items-center justify-between hover:bg-active p-2" border="b base">
+    <header
+      class="p4 flex items-center justify-between hover:bg-active p-2"
+      border="b base"
+    >
       <div class="flex items-center gap-4">
         <h2 class="opacity-60 font-bold">
           CodeMirror DevTools
         </h2>
       </div>
       <div class="flex items-center gap-2">
-        <UButton variant="ghost" color="white" size="sm" icon="i-carbon-document" target="_blank"
-          to="https://codemirror.net/docs/ref/" />
-        <UButton variant="ghost" color="white" size="sm" icon="i-iconoir-github" target="_blank"
-          to="https://github.com/ThimoDEV/nuxt-codemirror" />
+        <UButton
+          variant="ghost"
+          color="white"
+          size="sm"
+          icon="i-carbon-document"
+          target="_blank"
+          to="https://codemirror.net/docs/ref/"
+        />
+        <UButton
+          variant="ghost"
+          color="white"
+          size="sm"
+          icon="i-iconoir-github"
+          target="_blank"
+          to="https://github.com/ThimoDEV/nuxt-codemirror"
+        />
       </div>
     </header>
-    <div v-if="client" class="flex flex-col gap-2 p-2">
+    <div
+      v-if="client"
+      class="flex flex-col gap-2 p-2"
+    >
       Connected to the client.
     </div>
     <div v-else>

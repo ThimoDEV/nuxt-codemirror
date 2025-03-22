@@ -2,19 +2,19 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'green',
-      neutral: 'slate'
-    }
+      neutral: 'slate',
+    },
   },
   uiPro: {
     footer: {
       slots: {
         root: 'border-t border-(--ui-border)',
-        left: 'text-sm text-(--ui-text-muted)'
-      }
-    }
+        left: 'text-sm text-(--ui-text-muted)',
+      },
+    },
   },
   seo: {
-    siteName: 'Nuxt Codemirror'
+    siteName: 'Nuxt Codemirror',
   },
   header: {
     title: 'Nuxt Codemirror',
@@ -22,7 +22,7 @@ export default defineAppConfig({
     logo: {
       alt: '',
       light: '',
-      dark: ''
+      dark: '',
     },
     search: true,
     colorMode: true,
@@ -30,8 +30,8 @@ export default defineAppConfig({
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/ThimoDEV/nuxt-codemirror',
       'target': '_blank',
-      'aria-label': 'GitHub'
-    }]
+      'aria-label': 'GitHub',
+    }],
   },
   footer: {
     credits: `Copyright © ${new Date().getFullYear()}`,
@@ -40,23 +40,23 @@ export default defineAppConfig({
       'icon': 'i-simple-icons-nuxtdotjs',
       'to': 'https://nuxt.com',
       'target': '_blank',
-      'aria-label': 'Nuxt Website'
+      'aria-label': 'Nuxt Website',
     }, {
       'icon': 'i-simple-icons-discord',
       'to': 'https://discord.com/invite/ps2h6QT',
       'target': '_blank',
-      'aria-label': 'Nuxt UI on Discord'
+      'aria-label': 'Nuxt UI on Discord',
     }, {
       'icon': 'i-simple-icons-x',
       'to': 'https://x.com/nuxt_js',
       'target': '_blank',
-      'aria-label': 'Nuxt on X'
+      'aria-label': 'Nuxt on X',
     }, {
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/ThimoDEV/nuxt-codemirror',
       'target': '_blank',
-      'aria-label': 'Nuxt Codemirror Module on GitHub'
-    }]
+      'aria-label': 'Nuxt Codemirror Module on GitHub',
+    }],
   },
   toc: {
     title: 'Table of Contents',
@@ -67,18 +67,18 @@ export default defineAppConfig({
         icon: 'i-lucide-star',
         label: 'Star on GitHub',
         to: 'https://github.com/ThimoDEV/nuxt-codemirror',
-        target: '_blank'
+        target: '_blank',
       }, {
         icon: 'i-lucide-book-open',
         label: 'Nuxt UI Pro docs',
         to: 'https://ui.nuxt.com/getting-started/installation/pro/nuxt',
-        target: '_blank'
+        target: '_blank',
       }, {
         icon: 'i-simple-icons-nuxtdotjs',
         label: 'Purchase a license',
         to: 'https://ui.nuxt.com/pro/purchase',
-        target: '_blank'
-      }]
-    }
-  }
+        target: '_blank',
+      }],
+    },
+  },
 })

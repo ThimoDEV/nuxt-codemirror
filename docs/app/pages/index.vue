@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 const { data: page } = await useAsyncData('index', () => queryCollection('landing').path('/').first())
 if (!page.value) {
@@ -11,7 +12,7 @@ useSeoMeta({
   description: page.value.seo.description,
   ogDescription: page.value.seo.description,
   ogImage: 'https://docs-template.nuxt.dev/social-card.png',
-  twitterImage: 'https://docs-template.nuxt.dev/social-card.png'
+  twitterImage: 'https://docs-template.nuxt.dev/social-card.png',
 })
 </script>
 
