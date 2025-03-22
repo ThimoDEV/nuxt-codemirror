@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.16
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.15...v0.0.16)
+
+### 🩹 Fixes
+
+- Set explicit default extensions for bool basic setup ([f3aa716](https://github.com/ThimoDEV/nuxt-codemirror/commit/f3aa716))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+
 ## v0.0.15
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.14...v0.0.15)
