@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.0.15
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.14...v0.0.15)
+
+### 🚀 Enhancements
+
+- Inline nuxt docs v3 & dockerfile ([0e85bf0](https://github.com/ThimoDEV/nuxt-codemirror/commit/0e85bf0))
+- Added codemirror devtool tab and updated module.ts ([bb123a4](https://github.com/ThimoDEV/nuxt-codemirror/commit/bb123a4))
+
+### 🩹 Fixes
+
+- **deps:** Update dependency @codemirror/language to v6.11.0 ([3c18a51](https://github.com/ThimoDEV/nuxt-codemirror/commit/3c18a51))
+- Added minimalSetup example to playground ([cdd59c1](https://github.com/ThimoDEV/nuxt-codemirror/commit/cdd59c1))
+- Nuxt 3.16 specific changes and workspace for module and playground ([258883a](https://github.com/ThimoDEV/nuxt-codemirror/commit/258883a))
+
+### 🏡 Chore
+
+- Edited playground to test highlighting ([f035697](https://github.com/ThimoDEV/nuxt-codemirror/commit/f035697))
+- Cleanup playground and module ([2508806](https://github.com/ThimoDEV/nuxt-codemirror/commit/2508806))
+- Remove unused packages ([b4e5ed5](https://github.com/ThimoDEV/nuxt-codemirror/commit/b4e5ed5))
+- Type issue ([7febf14](https://github.com/ThimoDEV/nuxt-codemirror/commit/7febf14))
+- Update lockfile ([a90e821](https://github.com/ThimoDEV/nuxt-codemirror/commit/a90e821))
+- Fix lint and build errors ([5cc392b](https://github.com/ThimoDEV/nuxt-codemirror/commit/5cc392b))
+- Disable devtools ([30819d6](https://github.com/ThimoDEV/nuxt-codemirror/commit/30819d6))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+- H+ ([@justserdar](https://github.com/justserdar))
+
 ## v0.0.14
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.13...v0.0.14)

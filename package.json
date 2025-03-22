@@ -1,6 +1,6 @@
 {
   "name": "nuxt-codemirror",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Nuxt codemirror module",
   "repository": "https://github.com/ThimoDEV/nuxt-codemirror",
   "homepage": "https://github.com/ThimoDEV/nuxt-codemirror#readme",
@@ -69,7 +69,7 @@
     "vitest": "^3.0.8",
     "vue-tsc": "2.0.29"
   },
-    "resolutions": {
+  "resolutions": {
     "vue-tsc": "2.2.2"
   },
   "keywords": [
