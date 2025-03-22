@@ -30,7 +30,6 @@ import {
   foldKeymap,
 } from '@codemirror/language'
 import { lintKeymap } from '@codemirror/lint'
-import { minimalSetup } from 'codemirror'
 import { defaultLightThemeOption } from './theme/light'
 
 export * from '@codemirror/theme-one-dark'
@@ -73,17 +72,6 @@ export interface DefaultExtensionsOptions {
   readOnly?: boolean
   editable?: boolean
 }
-
-export const minimalSetup2: Extension = (() => [
-  highlightSpecialChars(),
-  history(),
-  drawSelection(),
-  syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-  keymap.of([
-    ...defaultKeymap,
-    ...historyKeymap,
-  ]),
-])()
 
 /**
  * Basic setup that includes standard CodeMirror extensions
