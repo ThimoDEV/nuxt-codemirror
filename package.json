@@ -28,6 +28,12 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "docs": "nuxt dev docs",
+    "docs:build": "nuxt build docs",
+    "docs:prepare": "nuxt prepare docs",
+    "docs:dev": "nuxt dev docs",
+    "docs:preview": "nuxt preview docs",
+    "docs:start": "node .output/server/index.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
@@ -44,7 +50,7 @@
     "@codemirror/state": "6.5.2",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@codemirror/view": "6.36.4",
-    "@nuxt/kit": "^3.16.0",
+    "@nuxt/kit": "^3.16.1",
     "codemirror": "^6.0.1"
   },
   "devDependencies": {
@@ -60,6 +66,9 @@
     "typescript": "5.3.2",
     "vitest": "^3.0.8",
     "vue-tsc": "2.0.29"
+  },
+    "resolutions": {
+    "vue-tsc": "2.2.2"
   },
   "keywords": [
     "nuxt",
