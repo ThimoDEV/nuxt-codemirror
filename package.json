@@ -28,6 +28,8 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "client:build": "nuxt prepare client && nuxi generate client",
+    "client:dev": "nuxi dev client --port 3300",
     "docs": "nuxt dev docs",
     "docs:build": "nuxt build docs",
     "docs:prepare": "nuxt prepare docs",
@@ -53,6 +55,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.2.1",
+    "@nuxt/devtools-ui-kit": "^1.6.4",
     "@nuxt/eslint-config": "^1.2.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.16.0",
