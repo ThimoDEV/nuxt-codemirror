@@ -1,5 +1,5 @@
 import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
-import { setupDevToolsUI } from './devtools'
+// import { setupDevToolsUI } from './devtools'
 
 export interface ModuleOptions {
   devtools?: boolean
@@ -11,15 +11,15 @@ export default defineNuxtModule({
     configKey: 'nuxtCodemirror',
   },
   defaults: {
-    devtools: false,
+    // devtools: false,
   },
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
     _nuxt.options.alias['#codemirror'] = resolver.resolve('./runtime')
 
-    if (_options.devtools) {
-      setupDevToolsUI(_nuxt, resolver)
-    }
+    // if (_options.devtools) {
+    //   setupDevToolsUI(_nuxt, resolver)
+    // }
 
     addComponent({
       name: 'NuxtCodeMirror',

@@ -1,5 +1,5 @@
 packages:
   - "./"
   - "playground"
-  # - "docs"
-  # - "client"
+  - "docs"
+  - "client"
