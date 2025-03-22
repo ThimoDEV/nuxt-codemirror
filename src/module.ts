@@ -1,32 +1,44 @@
 import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
-
+import { setupDevToolsUI } from './devtools'
 // Module options TypeScript interface definition
 // export interface ModuleOptions {}
+
+export interface ModuleOptions {
+  devtools?: boolean
+}
 
 export default defineNuxtModule({
   meta: {
     name: 'nuxt-codemirror',
     configKey: 'nuxtCodemirror',
   },
+  defaults: {
+    devtools: true,
+  },
   // Default configuration options of the Nuxt module
   // defaults: {},
   setup(_options, _nuxt) {
-    const { resolve } = createResolver(import.meta.url)
+    const resolver = createResolver(import.meta.url)
+    _nuxt.options.alias['#codemirror'] = resolver.resolve('./runtime')
+
+    if (_options.devtools) {
+      setupDevToolsUI(_nuxt, resolver)
+    }
 
     addComponent({
       name: 'NuxtCodeMirror',
-      filePath: resolve('./runtime/components/NuxtCodeMirror.vue'),
+      filePath: resolver.resolve('./runtime/components/NuxtCodeMirror.vue'),
     })
 
     addImports({
       name: 'useNuxtCodeMirror',
       as: 'useNuxtCodeMirror',
-      from: resolve('./runtime/composables/useNuxtCodeMirror.ts'),
+      from: resolver.resolve('./runtime/composables/useNuxtCodeMirror.ts'),
     })
 
     addTypeTemplate({
       filename: 'nuxt-codemirror.d.ts',
-      src: resolve('./runtime/types/nuxt-codemirror.d.ts'),
+      src: resolver.resolve('./runtime/types/nuxt-codemirror.d.ts'),
     })
 
     extendViteConfig((config) => {
@@ -34,9 +46,9 @@ export default defineNuxtModule({
       config.resolve.alias = config.resolve.alias || {}
 
       // @ts-expect-error - Add alias for @codemirror/state
-      config.resolve.alias['@codemirror/state'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/state')
+      config.resolve.alias['@codemirror/state'] = resolver.resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/state')
       // @ts-expect-error - Add alias for @codemirror/view
-      config.resolve.alias['@codemirror/view'] = resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/view')
+      config.resolve.alias['@codemirror/view'] = resolver.resolve(_nuxt.options.rootDir, 'node_modules/@codemirror/view')
     })
   },
 })
