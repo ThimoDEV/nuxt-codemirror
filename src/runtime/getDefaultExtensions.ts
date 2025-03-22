@@ -140,7 +140,7 @@ export const getDefaultExtensions = (optios: DefaultExtensionsOptions = {}): Ext
   }
   if (defaultBasicSetup) {
     if (typeof defaultBasicSetup === 'boolean') {
-      getExtensions.push(basicSetup())
+      getExtensions.push(basicSetup({ highlightSpecialChars: true, lineNumbers: true, history: true, drawSelection: true, syntaxHighlighting: true, defaultKeymap: true, historyKeymap: true }))
     }
     else {
       getExtensions.unshift(basicSetup(defaultBasicSetup))
