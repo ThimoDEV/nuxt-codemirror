@@ -1,4 +1,5 @@
 import { dirname, resolve } from 'node:path'
+import { existsSync, readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
 // import { setupDevToolsUI } from './devtools'
@@ -37,17 +38,71 @@ export default defineNuxtModule({
     const requireContexts = [appRequire, moduleRequire]
     const parentResolvePackages = ['@codemirror/language', '@codemirror/lang-javascript'] as const
 
+    const resolvePackageEntry = (requireContext: NodeRequire, packageName: string): string | null => {
+      try {
+        return requireContext.resolve(packageName)
+      }
+      catch {
+        return null
+      }
+    }
+
+    const findPackageRootFromEntry = (entryPath: string, packageName: string): string | null => {
+      let currentDir = dirname(entryPath)
+      let previousDir = ''
+
+      while (currentDir !== previousDir) {
+        const packageJsonPath = resolve(currentDir, 'package.json')
+        if (existsSync(packageJsonPath)) {
+          try {
+            const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8')) as { name?: string }
+            if (packageJson.name === packageName) {
+              return currentDir
+            }
+          }
+          catch {
+            // Ignore parse errors and continue walking up.
+          }
+        }
+
+        previousDir = currentDir
+        currentDir = dirname(currentDir)
+      }
+
+      return null
+    }
+
     const resolvePackageRoot = (packageName: string): string | null => {
       for (const requireContext of requireContexts) {
-        return dirname(requireContext.resolve(`${packageName}/package.json`))
+        const packageEntry = resolvePackageEntry(requireContext, packageName)
+        if (!packageEntry) {
+          continue
+        }
+
+        const packageRoot = findPackageRootFromEntry(packageEntry, packageName)
+        if (packageRoot) {
+          return packageRoot
+        }
       }
 
       // In pnpm/npm layouts, some Lezer packages can be nested under parent CodeMirror packages.
       for (const requireContext of requireContexts) {
         for (const parentPackage of parentResolvePackages) {
-          const parentPackagePath = requireContext.resolve(`${parentPackage}/package.json`)
-          const parentRequire = createRequire(parentPackagePath)
-          return dirname(parentRequire.resolve(`${packageName}/package.json`))
+          const parentPackageEntry = resolvePackageEntry(requireContext, parentPackage)
+          if (!parentPackageEntry) {
+            continue
+          }
+
+          const parentRequire = createRequire(parentPackageEntry)
+          const packageEntry = resolvePackageEntry(parentRequire, packageName)
+          if (!packageEntry) {
+            continue
+          }
+
+          const packageRoot = findPackageRootFromEntry(packageEntry, packageName)
+          if (packageRoot) {
+            return packageRoot
+          }
         }
       }
 
