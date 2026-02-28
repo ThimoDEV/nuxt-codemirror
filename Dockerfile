@@ -2,7 +2,7 @@
 # https://gist.github.com/sandros94/03675514546f17af1fd6db3863c043b4
 
 # Base configuration
-ARG node_tag=22-alpine
+ARG node_tag=24-alpine
 FROM node:${node_tag} AS base
 WORKDIR /app
 
