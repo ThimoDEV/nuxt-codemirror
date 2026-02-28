@@ -1,4 +1,4 @@
-import { dirname } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { createRequire } from 'node:module'
 import { defineNuxtModule, addComponent, createResolver, addImports, extendViteConfig, addTypeTemplate } from '@nuxt/kit'
 // import { setupDevToolsUI } from './devtools'
@@ -17,28 +17,58 @@ export default defineNuxtModule({
   },
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
-    const codemirrorSingletonPackages = ['@codemirror/state', '@codemirror/view', '@codemirror/language', '@lezer/highlight'] as const
-    const require = createRequire(import.meta.url)
+    const codemirrorSingletonPackages = [
+      '@codemirror/state',
+      '@codemirror/view',
+      '@codemirror/language',
+      '@codemirror/autocomplete',
+      '@codemirror/commands',
+      '@codemirror/lint',
+      '@codemirror/search',
+      '@codemirror/theme-one-dark',
+      '@codemirror/lang-javascript',
+      '@lezer/common',
+      '@lezer/highlight',
+      '@lezer/lr',
+      '@lezer/javascript',
+    ] as const
+    const moduleRequire = createRequire(import.meta.url)
+    const appRequire = createRequire(resolve(_nuxt.options.rootDir, 'package.json'))
+    const requireContexts = [appRequire, moduleRequire]
+    const parentResolvePackages = ['@codemirror/language', '@codemirror/lang-javascript'] as const
+
     const resolvePackageRoot = (packageName: string): string | null => {
-      try {
-        return dirname(require.resolve(`${packageName}/package.json`))
-      }
-      catch {
-        // In pnpm layouts, @lezer/highlight may only be resolvable from @codemirror/language context.
-        if (packageName === '@lezer/highlight') {
-          try {
-            const languagePackagePath = require.resolve('@codemirror/language/package.json')
-            const languageRequire = createRequire(languagePackagePath)
-            return dirname(languageRequire.resolve('@lezer/highlight/package.json'))
-          }
-          catch {
-            return null
-          }
+      for (const requireContext of requireContexts) {
+        try {
+          return dirname(requireContext.resolve(`${packageName}/package.json`))
         }
-        return null
+        catch {}
       }
+
+      // In pnpm/npm layouts, some Lezer packages can be nested under parent CodeMirror packages.
+      for (const requireContext of requireContexts) {
+        for (const parentPackage of parentResolvePackages) {
+          try {
+            const parentPackagePath = requireContext.resolve(`${parentPackage}/package.json`)
+            const parentRequire = createRequire(parentPackagePath)
+            return dirname(parentRequire.resolve(`${packageName}/package.json`))
+          }
+          catch {}
+        }
+      }
+
+      return null
     }
     _nuxt.options.alias['#codemirror'] = resolver.resolve('./runtime')
+    const resolvedSingletonRoots = new Map<string, string>()
+    for (const packageName of codemirrorSingletonPackages) {
+      const packageRoot = resolvePackageRoot(packageName)
+      if (packageRoot) {
+        resolvedSingletonRoots.set(packageName, packageRoot)
+        // Keep Nuxt resolver aligned with Vite for SSR and type/runtime consistency.
+        _nuxt.options.alias[packageName] = packageRoot
+      }
+    }
 
     // if (_options.devtools) {
     //   setupDevToolsUI(_nuxt, resolver)
@@ -62,17 +92,24 @@ export default defineNuxtModule({
 
     extendViteConfig((config) => {
       config.resolve = config.resolve || {}
-      config.resolve.alias = config.resolve.alias || {}
       config.resolve.dedupe = Array.from(new Set([...(config.resolve.dedupe || []), ...codemirrorSingletonPackages]))
+      const existingAlias = config.resolve.alias || {}
+      const aliasArray = Array.isArray(existingAlias)
+        ? existingAlias
+        : Object.entries(existingAlias).map(([find, replacement]) => ({ find, replacement }))
 
-      for (const packageName of codemirrorSingletonPackages) {
-        const packageRoot = resolvePackageRoot(packageName)
-        if (packageRoot) {
-          // Force all app/module imports to the same package instance.
-          // @ts-expect-error - Vite alias map accepts string keys.
-          config.resolve.alias[packageName] = packageRoot
+      for (const [packageName, packageRoot] of resolvedSingletonRoots) {
+        // Force all app/module imports to the same package instance.
+        const existingAliasEntry = aliasArray.find(aliasEntry => aliasEntry.find === packageName)
+        if (existingAliasEntry) {
+          existingAliasEntry.replacement = packageRoot
+        }
+        else {
+          aliasArray.push({ find: packageName, replacement: packageRoot })
         }
       }
+
+      config.resolve.alias = aliasArray
     })
   },
 })
