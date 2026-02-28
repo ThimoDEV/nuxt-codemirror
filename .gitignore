@@ -1,5 +1,6 @@
 # Dependencies
 node_modules
+/playground/pnpm-lock.yaml
 
 # Logs
 *.log*
