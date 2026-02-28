@@ -39,21 +39,15 @@ export default defineNuxtModule({
 
     const resolvePackageRoot = (packageName: string): string | null => {
       for (const requireContext of requireContexts) {
-        try {
-          return dirname(requireContext.resolve(`${packageName}/package.json`))
-        }
-        catch {}
+        return dirname(requireContext.resolve(`${packageName}/package.json`))
       }
 
       // In pnpm/npm layouts, some Lezer packages can be nested under parent CodeMirror packages.
       for (const requireContext of requireContexts) {
         for (const parentPackage of parentResolvePackages) {
-          try {
-            const parentPackagePath = requireContext.resolve(`${parentPackage}/package.json`)
-            const parentRequire = createRequire(parentPackagePath)
-            return dirname(parentRequire.resolve(`${packageName}/package.json`))
-          }
-          catch {}
+          const parentPackagePath = requireContext.resolve(`${parentPackage}/package.json`)
+          const parentRequire = createRequire(parentPackagePath)
+          return dirname(parentRequire.resolve(`${packageName}/package.json`))
         }
       }
 
