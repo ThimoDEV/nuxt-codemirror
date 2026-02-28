@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.19
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.18...v0.0.19)
+
+### 🩹 Fixes
+
+- Attempt highlighting issue without needing basicSetup extension ([83b7315](https://github.com/ThimoDEV/nuxt-codemirror/commit/83b7315))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+
 ## v0.0.18
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.17...v0.0.18)
