@@ -1,8 +1,35 @@
 import type { EditorState, EditorStateConfig, Extension, StateField, EditorSelection, SelectionRange, Line } from '@codemirror/state'
 import type { EditorView, ViewUpdate } from '@codemirror/view'
-import type { BasicSetupOptions } from '@uiw/codemirror-extensions-basic-setup'
 import type { ModelRef } from 'vue'
 import type { Ref } from '#imports'
+
+export interface BasicSetupOptions {
+  lineNumbers?: boolean
+  highlightActiveLineGutter?: boolean
+  highlightSpecialChars?: boolean
+  history?: boolean
+  foldGutter?: boolean
+  drawSelection?: boolean
+  dropCursor?: boolean
+  allowMultipleSelections?: boolean
+  indentOnInput?: boolean
+  syntaxHighlighting?: boolean
+  bracketMatching?: boolean
+  closeBrackets?: boolean
+  autocompletion?: boolean
+  rectangularSelection?: boolean
+  crosshairCursor?: boolean
+  highlightActiveLine?: boolean
+  highlightSelectionMatches?: boolean
+  defaultKeymap?: boolean
+  closeBracketsKeymap?: boolean
+  searchKeymap?: boolean
+  historyKeymap?: boolean
+  foldKeymap?: boolean
+  completionKeymap?: boolean
+  lintKeymap?: boolean
+  tabSize?: number
+}
 
 export interface NuxtCodeMirrorProps
   extends Omit<EditorStateConfig, 'doc' | 'extensions'> {

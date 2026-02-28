@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 4000,
   },
-  compatibilityDate: '2024-07-24',
+  compatibilityDate: 'latest',
   nuxtCodemirror: {
     devtools: true,
   },

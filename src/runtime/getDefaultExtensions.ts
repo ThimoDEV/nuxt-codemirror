@@ -111,7 +111,7 @@ export const basicSetup = (options: BasicSetupOptions = {}): Extension[] => {
   if (options.allowMultipleSelections !== false) extensions.push(EditorState.allowMultipleSelections.of(true))
   if (options.indentOnInput !== false) extensions.push(indentOnInput())
   if (options.syntaxHighlighting !== false)
-    extensions.push(syntaxHighlighting(defaultHighlightStyle))
+    extensions.push(syntaxHighlighting(defaultHighlightStyle, { fallback: true }))
   if (options.bracketMatching !== false) extensions.push(bracketMatching())
   if (options.closeBrackets !== false) extensions.push(closeBrackets())
   if (options.autocompletion !== false) extensions.push(autocompletion())
