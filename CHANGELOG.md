@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v0.0.17
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.16...v0.0.17)
+
+### 🏡 Chore
+
+- **release:** V0.0.16 ([2eca6f2](https://github.com/ThimoDEV/nuxt-codemirror/commit/2eca6f2))
+- Update deps ([28b4b7f](https://github.com/ThimoDEV/nuxt-codemirror/commit/28b4b7f))
+- Lint fix ([94b10f5](https://github.com/ThimoDEV/nuxt-codemirror/commit/94b10f5))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+
 ## v0.0.16
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.15...v0.0.16)

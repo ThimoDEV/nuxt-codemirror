@@ -1,6 +1,6 @@
 {
   "name": "nuxt-codemirror",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Nuxt codemirror module",
   "repository": "https://github.com/ThimoDEV/nuxt-codemirror",
   "homepage": "https://github.com/ThimoDEV/nuxt-codemirror#readme",
@@ -12,13 +12,11 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "main": "./dist/module.mjs",
   "files": [
     "dist"
   ],
