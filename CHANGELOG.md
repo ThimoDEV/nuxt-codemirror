@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.20
+
+[compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.19...v0.0.20)
+
+### 🩹 Fixes
+
+- Resolved try catch ([1821d2b](https://github.com/ThimoDEV/nuxt-codemirror/commit/1821d2b))
+- Attempt highlight fix ([51ca7db](https://github.com/ThimoDEV/nuxt-codemirror/commit/51ca7db))
+
+### 🏡 Chore
+
+- Patch for npm release ([b92d5b3](https://github.com/ThimoDEV/nuxt-codemirror/commit/b92d5b3))
+
+### ❤️ Contributors
+
+- Thimo ([@ThimoDEV](https://github.com/ThimoDEV))
+
 ## v0.0.19
 
 [compare changes](https://github.com/ThimoDEV/nuxt-codemirror/compare/v0.0.18...v0.0.19)
