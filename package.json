@@ -68,7 +68,7 @@
     "vue-tsc": "3.2.5"
   },
   "resolutions": {
-    "vue-tsc": "2.2.2"
+    "vue-tsc": "3.2.5"
   },
   "keywords": [
     "nuxt",
