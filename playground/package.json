@@ -15,7 +15,7 @@
     "@codemirror/lint": "^6.9.4",
     "@codemirror/search": "^6.6.0",
     "@codemirror/state": "6.5.4",
-    "@codemirror/view": "6.39.15",
+    "@codemirror/view": "6.39.16",
     "@nuxt/kit": "^4.3.1",
     "@uiw/codemirror-extensions-line-numbers-relative": "^4.25.5",
     "@uiw/codemirror-theme-okaidia": "^4.25.5",
